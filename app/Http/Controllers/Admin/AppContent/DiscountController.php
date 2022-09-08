@@ -36,12 +36,11 @@ class DiscountController extends Controller
                 'is_searchable'=>true,
                 'order'=>true
             ],
-            dd(Category::where('is_active', true)->get()),
             'category_id'=> [
                 'name'=>'category_id',
                 'type'=>'custom_relation',
                 'relation'=>[
-                    'data'=> Category::where('is_active', true)->get(),
+                    'data'=> Category::all(),
                     'custom'=>function($Object){
                         return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
                     },

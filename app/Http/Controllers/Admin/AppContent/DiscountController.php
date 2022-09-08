@@ -42,7 +42,6 @@ class DiscountController extends Controller
                 'relation'=>[
                     'data'=> Category::all(),
                     'custom'=>function($Object){
-            dd($Object);die();
                         return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
                     },
                     'entity'=>'category'

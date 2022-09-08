@@ -43,7 +43,7 @@ class DiscountController extends Controller
                     'data'=> Category::where('is_active', true)->get(),
                     'custom'=>function($Object){
 //            return ($Object);
-                        return app()->getLocale() == 'ar'?($Object->getNameAr() ?? $Object->getName()):$Object->getName();
+                        return app()->getLocale() == 'ar'?($Object):$Object->getName();
                     },
                     'entity'=>'category'
                 ],

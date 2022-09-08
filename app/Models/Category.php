@@ -21,6 +21,10 @@ class Category extends Model
     protected $table = 'categories';
     protected $fillable = ['name','name_ar','description','description_ar','image', 'color','is_active'];
 
+    public function discounts(): HasMany
+    {
+        return $this->hasMany(Discount::class);
+    }
 
     /**
      * @return int

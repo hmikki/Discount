@@ -21,7 +21,7 @@
                                             @elseif($field["type"] == 'image')
                                                 <tr>
                                                     <th style="border-top: none !important;">{{__('crud.'.$lang.'.'.$field["name"])}}</th>
-                                                    <td style="border-top: none !important;"><img src="{{$Object[$field["name"]]}}" height="70px" width="70px"></td>
+                                                    <td style="border-top: none !important;"><img src="{{asset($Object[$field["name"]])}}" height="70px" width="70px"></td>
                                                 </tr>
                                             @elseif($field["type"] == 'url')
                                                 <tr>

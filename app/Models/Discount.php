@@ -34,7 +34,7 @@ class Discount extends Model
     {
         return $this->belongsTo(Country::class,'country_id');
     }
-    public function categors(): BelongsTo
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class,'category_id','id');
     }

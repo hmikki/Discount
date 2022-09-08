@@ -40,7 +40,7 @@ class DiscountController extends Controller
                 'name'=>'category_id',
                 'type'=>'custom_relation',
                 'relation'=>[
-                    'data'=> Category::all(),
+                    'data'=> Category::where('is_active', true)->get(),
                     'custom'=>function($Object){
             return ($Object);
 //                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();

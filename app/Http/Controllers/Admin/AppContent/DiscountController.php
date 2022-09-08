@@ -67,6 +67,7 @@ class DiscountController extends Controller
             ],
         ]);
         $this->setFields([
+            dd(Site::where('is_active', true)->get()),
             'site_id'=> [
                 'name'=>'site_id',
                 'type'=>'custom_relation',

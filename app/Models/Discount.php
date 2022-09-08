@@ -10,18 +10,20 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property integer id
  * @property mixed site_id
  * @property mixed country_id
+ * @property mixed category_id
  * @property mixed name
  * @property mixed name_ar
  * @property mixed image
  * @property mixed url
  * @property mixed qrcode
  * @property mixed type
+ * @property mixed expire_date
  * @property boolean is_active
  */
 class Discount extends Model
 {
     protected $table = 'discounts';
-    protected $fillable = ['site_id','country_id','name','name_ar','image', 'url', 'qrcode', 'type','is_active'];
+    protected $fillable = ['site_id','country_id','category_id','name','name_ar','image', 'url', 'qrcode', 'type', 'expire_date','is_active'];
 
     public function site(): BelongsTo
     {
@@ -31,6 +33,10 @@ class Discount extends Model
     public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class,'country_id');
+    }
+    public function categors(): BelongsTo
+    {
+        return $this->belongsTo(Category::class,'category_id','id');
     }
 
     /**
@@ -80,6 +86,21 @@ class Discount extends Model
     {
         $this->country_id = $country_id;
     }
+    /**
+     * @return int
+     */
+    public function getCategoryId(): int
+    {
+        return $this->category_id;
+    }
+
+    /**
+     * @param int $category_id
+     */
+    public function setCategoryId(int $category_id): void
+    {
+        $this->category_id = $category_id;
+    }
 
 
     /**
@@ -97,6 +118,22 @@ class Discount extends Model
     {
         $this->name = $name;
     }
+    /**
+     * @return mixed
+     */
+    public function getExpireDate(): string
+    {
+        return $this->expire_date;
+    }
+
+    /**
+     * @param mixed $expire_date
+     */
+    public function setExpireDate(string $expire_date): void
+    {
+        $this->expire_date = $expire_date;
+    }
+
 
     /**
      * @return mixed

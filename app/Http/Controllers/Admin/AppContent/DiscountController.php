@@ -27,7 +27,7 @@ class DiscountController extends Controller
                 'relation'=>[
                     'data'=> Site::all(),
                     'custom'=>function($Object){
-                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
+                        return app()->getLocale() == 'ar'?$Object->name_ar:$Object->name;
                     },
                     'entity'=>'country'
                 ],
@@ -73,7 +73,7 @@ class DiscountController extends Controller
                 'relation'=>[
                     'data'=> Site::all(),
                     'custom'=>function($Object){
-                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
+                        return app()->getLocale() == 'ar'?$Object->name_ar:$Object->name;
                     },
                     'entity'=>'country'
                 ],

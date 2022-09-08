@@ -25,7 +25,7 @@ class DiscountController extends Controller
                 'name'=>'site_id',
                 'type'=>'custom_relation',
                 'relation'=>[
-                    'data'=> Site::all(),
+                    'data'=> Site::where('is_active', true)->get(),
                     'custom'=>function($Object){
                         return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
                     },
@@ -71,7 +71,7 @@ class DiscountController extends Controller
                 'name'=>'site_id',
                 'type'=>'custom_relation',
                 'relation'=>[
-                    'data'=> Site::all(),
+                    'data'=> Site::where('is_active', true)->get(),
                     'custom'=>function($Object){
                         return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
                     },

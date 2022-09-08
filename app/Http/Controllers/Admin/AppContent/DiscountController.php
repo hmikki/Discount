@@ -44,7 +44,7 @@ class DiscountController extends Controller
                     'custom'=>function($Object){
                         return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
                     },
-                    'entity'=>'category'
+                    'entity'=>'categories'
                 ],
                 'is_searchable'=>true,
                 'order'=>true

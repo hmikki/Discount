@@ -11,25 +11,18 @@ use App\Models\Country;
 use App\Models\User;
 use App\Traits\AhmedPanelTrait;
 
-class CustomerController extends Controller
+class UserController extends Controller
 {
     use AhmedPanelTrait;
 
     public function setup()
     {
-        $this->setRedirect('user_managements/customers');
+        $this->setRedirect('user_managements/users');
         $this->setEntity(new User());
         $this->setViewShow('Admin.UserManagement.Customer.show');
         $this->setTable('users');
         $this->setLang('Customer');
         $this->setCreate(false);
-        $this->setFilters([
-            'type'=>[
-                'name'=>'type',
-                'type'=>'where',
-                'value'=>Constant::USER_TYPE['Customer']
-            ]
-        ]);
         $this->setColumns([
             'name'=> [
                 'name'=>'name',

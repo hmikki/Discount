@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\sectionsController;
-use App\Http\Controllers\Api\specialtiesController;
+use App\Http\Controllers\Api\discountsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,16 +39,6 @@ Route::group([
     });
 });
 
-Route::group([
-    'prefix' => 'chats',
-    'middleware' => 'auth:api',
-], function() {
-    Route::get('rooms','ChatController@rooms');
-    Route::get('rooms/messages','ChatController@messages');
-    Route::get('rooms/read','ChatController@read_messages');
-    Route::post('rooms/create','ChatController@create_room');
-    Route::post('rooms/messages/create','ChatController@create_message');
-});
 
 Route::group([
 //    'middleware' => 'auth:api'
@@ -72,31 +62,18 @@ Route::group([
         Route::post('response','TicketController@response');
     });
     Route::group([
-        'prefix' => 'transactions',
-        'middleware' => 'auth:api'
+        'prefix' => 'sites',
+//        'middleware' => 'auth:api'
     ], function() {
-        Route::get('/', 'TransactionController@index');
-        Route::get('my_balance', 'TransactionController@my_balance');
-        Route::post('generate_checkout', 'TransactionController@generate_checkout');
-        Route::get('check_payment', 'TransactionController@check_payment');
-        Route::post('request_refund', 'TransactionController@request_refund');
+        Route::get('/','sitesController@index');
+        Route::get('show','sitesController@show');
     });
     Route::group([
-        'prefix' => 'orders',
-        'middleware' => 'auth:api'
-    ], function (){
-        Route::get('/','OrderController@index');
-        Route::get('show','OrderController@show');
-        Route::post('store','OrderController@store');
-        Route::post('update', 'OrderController@update');
-        Route::post('review', 'OrderController@review');
-    });
-    Route::group([
-        'prefix' => 'specialists',
-        'middleware' => 'auth:api'
-    ], function (){
-        Route::get('/','specialtiesController@index');
-        Route::get('show','specialtiesController@show');
+        'prefix' => 'discounts',
+//        'middleware' => 'auth:api'
+    ], function() {
+        Route::get('/','discountsController@index');
+        Route::get('show','discountsController@show');
     });
 
 });

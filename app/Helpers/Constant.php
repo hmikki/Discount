@@ -10,6 +10,7 @@ class Constant
         'General'=>1,
         'Ticket'=>2,
         'Order'=>3,
+        'Message'=>4,
     ];
     const VERIFICATION_TYPE = [
         'Email'=>1,

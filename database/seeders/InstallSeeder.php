@@ -134,17 +134,11 @@ class InstallSeeder extends Seeder
                 'name_ar'=>'إدارة المستخدمين',
                 'key'=>'user_managements',
                 'Children'=>[
-                    'Customers'=>[
-                        'name'=>'Customers',
-                        'name_ar'=>'الزبائن',
-                        'key'=>'customers',
+                    'Users'=>[
+                        'name'=>'Users',
+                        'name_ar'=>'المستخدمين',
+                        'key'=>'users',
                         'icon'=>'group'
-                    ],
-                    'Providers'=>[
-                        'name'=>'Providers',
-                        'name_ar'=>'المزودين',
-                        'key'=>'providers',
-                        'icon'=>'person_search'
                     ],
                     'Tickets'=>[
                         'name'=>'Tickets',

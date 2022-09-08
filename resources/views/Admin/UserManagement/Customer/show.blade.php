@@ -31,10 +31,6 @@
                                                 <span class="label label-{{($Object->isIsActive())?'success':'danger'}}">{{($Object->isIsActive())?__('admin.activation.active'):__('admin.activation.in_active')}}</span>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <th style="border-top: none !important;">{{__('crud.'.$lang.'.orders_count')}}</th>
-                                            <td style="border-top: none !important;"><a href="{{url('app_content/orders?user_id='.$Object->getId())}}">{{\App\Models\Order::where('user_id',$Object->getId())->count()}}</a></td>
-                                        </tr>
                                     </table>
                                 </div>
                             </div>

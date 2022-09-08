@@ -15,6 +15,10 @@ use Illuminate\Http\JsonResponse;
  */
 class SendRequest extends ApiRequest
 {
+    public function authorize(): bool
+    {
+        return true;
+    }
     public function rules(): array
     {
         return [
@@ -26,8 +30,12 @@ class SendRequest extends ApiRequest
 
     public function run(): JsonResponse
     {
+        $logged = auth()->user();
+        if(!$logged){
+            return $this->failJsonResponse(__('auth.unauthenticated'));
+        }
         $User = (new User)->find($this->user_id);
-        Functions::SendNotification($User,$this->title,$this->message,$this->title,$this->message,auth()->user()->getId(),Constant::NOTIFICATION_TYPE['Message'],false);
+        Functions::SendNotification($User,$this->title,$this->message,$this->title,$this->message,$logged->getId(),Constant::NOTIFICATION_TYPE['Message'],false);
         return $this->successJsonResponse([__('messages.created_successful')]);
     }
 }

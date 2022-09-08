@@ -224,18 +224,6 @@ Route::group([
             Route::delete('/{order}','DiscountController@destroy');
             Route::get('/option/export','DiscountController@export');
         });
-        Route::group([
-            'prefix'=>'products'
-        ],function () {
-            Route::get('/','FoodController@index');
-            Route::get('/create','FoodController@create');
-            Route::post('/','FoodController@store');
-            Route::get('/{product}','FoodController@show');
-            Route::get('/{product}/edit','FoodController@edit');
-            Route::put('/{product}','FoodController@update');
-            Route::delete('/{product}','FoodController@destroy');
-            Route::get('/option/export','FoodController@export');
-        });
     });
     /*
     |--------------------------------------------------------------------------
@@ -249,33 +237,20 @@ Route::group([
         'namespace'=>'UserManagement',
     ],function () {
         Route::group([
-            'prefix'=>'customers'
+            'prefix'=>'users'
         ],function () {
-            Route::get('/','CustomerController@index');
-            Route::get('/create','CustomerController@create');
-            Route::post('/','CustomerController@store');
-            Route::get('/{customer}','CustomerController@show');
-            Route::get('/{customer}/edit','CustomerController@edit');
-            Route::put('/{customer}','CustomerController@update');
-            Route::patch('/update/password',  'CustomerController@updatePassword');
-            Route::get('/option/export','CustomerController@export');
-            Route::get('/{id}/activation','CustomerController@activation');
-            Route::get('/{customer}/active_mobile_email','CustomerController@active_mobile_email');
+            Route::get('/','UserController@index');
+            Route::get('/create','UserController@create');
+            Route::post('/','UserController@store');
+            Route::get('/{user}','UserController@show');
+            Route::get('/{user}/edit','UserController@edit');
+            Route::put('/{user}','UserController@update');
+            Route::patch('/update/password',  'UserController@updatePassword');
+            Route::get('/option/export','UserController@export');
+            Route::get('/{id}/activation','UserController@activation');
+            Route::get('/{user}/active_mobile_email','UserController@active_mobile_email');
         });
-        Route::group([
-            'prefix'=>'providers'
-        ],function () {
-            Route::get('/','ProviderController@index');
-            Route::get('/create','ProviderController@create');
-            Route::post('/','ProviderController@store');
-            Route::get('/{provider}','ProviderController@show');
-            Route::get('/{provider}/edit','ProviderController@edit');
-            Route::put('/{provider}','ProviderController@update');
-            Route::patch('/update/password',  'ProviderController@updatePassword');
-            Route::get('/option/export','ProviderController@export');
-            Route::get('/{id}/activation','ProviderController@activation');
-            Route::get('/{provider}/active_mobile_email','ProviderController@active_mobile_email');
-        });
+
         Route::group([
             'prefix'=>'tickets'
         ],function () {

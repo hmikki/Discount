@@ -1,14 +1,17 @@
 <?php
 
-namespace App\Http\Requests\Api\sections;
+namespace App\Http\Requests\Api\discounts;
 
+use App\Helpers\Constant;
 use App\Http\Requests\Api\ApiRequest;
-use App\Http\Resources\Api\sections\sectionsResource;
-use App\Models\Sections;
+use App\Http\Resources\Api\Discount\DiscountResource;
+use App\Http\Resources\Api\User\UserResource;
+use App\Models\Discount;
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\JsonResponse;
 
-class showRequest extends ApiRequest
+class indexRequest extends ApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,6 +36,9 @@ class showRequest extends ApiRequest
     }
     public function run(): JsonResponse
     {
-        return $this->successJsonResponse([], new sectionsResource(Sections::findOrFail($this->id)), 'sections');
+        $Objects =new  Discount();
+        $Objects = $Objects->paginate($this->filled('per_page')?$this->per_page:10);
+        return $this->successJsonResponse([],DiscountResource::collection($Objects->items()),'Discounts',$Objects);
+
     }
 }

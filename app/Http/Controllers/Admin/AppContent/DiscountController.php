@@ -23,20 +23,19 @@ class DiscountController extends Controller
         $this->setViewShow('Admin.AppContent.Discount.show');
         $this->setLang('Discounts');
         $this->setColumns([
-            dd(Category::all()),
-            'category_id'=> [
-                'name'=>'category_id',
-                'type'=>'custom_relation',
-                'relation'=>[
-                    'data'=> Category::all(),
-                    'custom'=>function($Object){
-                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
-                    },
-                    'entity'=>'category'
-                ],
-                'is_searchable'=>true,
-                'order'=>true
-            ],
+//            'category_id'=> [
+//                'name'=>'category_id',
+//                'type'=>'custom_relation',
+//                'relation'=>[
+//                    'data'=> Category::all(),
+//                    'custom'=>function($Object){
+//                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
+//                    },
+//                    'entity'=>'category'
+//                ],
+//                'is_searchable'=>true,
+//                'order'=>true
+//            ],
             'site_id'=> [
                 'name'=>'site_id',
                 'type'=>'custom_relation',

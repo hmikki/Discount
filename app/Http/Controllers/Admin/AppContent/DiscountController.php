@@ -6,6 +6,7 @@ use App\Helpers\Constant;
 use App\Http\Controllers\Admin\Controller;
 use App\Http\Requests\Admin\AppContent\Discount\StoreRequest;
 use App\Models\Discount;
+use App\Models\Site;
 use App\Traits\AhmedPanelTrait;
 
 class DiscountController extends Controller
@@ -20,6 +21,19 @@ class DiscountController extends Controller
         $this->setViewShow('Admin.AppContent.Discount.show');
         $this->setLang('Discounts');
         $this->setColumns([
+            'site_id'=> [
+                'name'=>'site_id',
+                'type'=>'custom_relation',
+                'relation'=>[
+                    'data'=> Site::all(),
+                    'custom'=>function($Object){
+                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
+                    },
+                    'entity'=>'country'
+                ],
+                'is_searchable'=>true,
+                'order'=>true
+            ],
             'image'=> [
                 'name'=>'image',
                 'type'=>'image',
@@ -53,6 +67,18 @@ class DiscountController extends Controller
             ],
         ]);
         $this->setFields([
+            'site_id'=> [
+                'name'=>'site_id',
+                'type'=>'custom_relation',
+                'relation'=>[
+                    'data'=> Site::all(),
+                    'custom'=>function($Object){
+                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
+                    },
+                    'entity'=>'country'
+                ],
+                'is_required'=>true
+            ],
             'name'=> [
                 'name'=>'name',
                 'type'=>'text',

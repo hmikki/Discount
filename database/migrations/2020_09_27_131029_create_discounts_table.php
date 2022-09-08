@@ -17,6 +17,7 @@ class CreateDiscountsTable extends Migration
              $table->id();
              $table->foreignId('site_id')->nullable();
              $table->foreignId('country_id')->nullable();
+             $table->foreignId('category_id')->nullable();
              $table->string('name')->nullable();
              $table->string('name_ar')->nullable();
              $table->string('image')->nullable();

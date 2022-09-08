@@ -179,6 +179,7 @@ return [
         'crud_names' => 'الخصومات',
         'crud_name' => 'خصم',
         'crud_the_name' => 'الخصم',
+        'site_id'=>'اسم الموقع',
         'name' => 'الاسم',
         'name_ar' => 'الاسم عربي',
         'image' => 'الصورة',

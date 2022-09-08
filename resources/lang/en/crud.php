@@ -179,6 +179,7 @@ return [
         'crud_names' => 'Discounts',
         'crud_name' => 'Discount',
         'crud_the_name' => 'The Discount',
+        'site_id'=>'Site Name',
         'name' => 'Name',
         'name_ar' => 'Name Ar',
         'image' => 'Image',

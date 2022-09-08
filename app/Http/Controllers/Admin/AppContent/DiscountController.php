@@ -41,13 +41,13 @@ class DiscountController extends Controller
                 'type'=>'custom_relation',
                 'relation'=>[
                     'data'=> Category::all(),
-                    'custom'=>function($Object){
-                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
-                    },
+//                    'custom'=>function($Object){
+//                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
+//                    },
                     'entity'=>'category'
                 ],
                 'is_searchable'=>false,
-                'order'=>true
+                'order'=>false
             ],
             'country_id'=> [
                 'name'=>'country_id',

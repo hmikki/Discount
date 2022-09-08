@@ -36,6 +36,7 @@ class DiscountController extends Controller
                 'is_searchable'=>true,
                 'order'=>true
             ],
+            dd(Category::where('is_active', true)->get()),
             'category_id'=> [
                 'name'=>'category_id',
                 'type'=>'custom_relation',

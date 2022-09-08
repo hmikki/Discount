@@ -23,19 +23,6 @@ class DiscountController extends Controller
         $this->setViewShow('Admin.AppContent.Discount.show');
         $this->setLang('Discounts');
         $this->setColumns([
-//            'category_id'=> [
-//                'name'=>'category_id',
-//                'type'=>'custom_relation',
-//                'relation'=>[
-//                    'data'=> Category::all(),
-//                    'custom'=>function($Object){
-//                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
-//                    },
-//                    'entity'=>'category'
-//                ],
-//                'is_searchable'=>true,
-//                'order'=>true
-//            ],
             'site_id'=> [
                 'name'=>'site_id',
                 'type'=>'custom_relation',
@@ -45,6 +32,19 @@ class DiscountController extends Controller
                         return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
                     },
                     'entity'=>'site'
+                ],
+                'is_searchable'=>true,
+                'order'=>true
+            ],
+            'category_id'=> [
+                'name'=>'category_id',
+                'type'=>'custom_relation',
+                'relation'=>[
+                    'data'=> Category::where('is_active', true)->get(),
+                    'custom'=>function($Object){
+                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
+                    },
+                    'entity'=>'category'
                 ],
                 'is_searchable'=>true,
                 'order'=>true

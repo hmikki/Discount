@@ -27,28 +27,28 @@ class DiscountController extends Controller
                 'name'=>'site_id',
                 'type'=>'custom_relation',
                 'relation'=>[
-                    'data'=> Site::where('is_active', true)->get(),
+                    'data'=> Category::where('is_active', true)->get(),
                     'custom'=>function($Object){
                         return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
                     },
-                    'entity'=>'site'
+                    'entity'=>'category'
                 ],
                 'is_searchable'=>true,
                 'order'=>true
             ],
-            'category_id'=> [
-                'name'=>'category_id',
-                'type'=>'custom_relation',
-                'relation'=>[
-                    'data'=> Category::all(),
-//                    'custom'=>function($Object){
-//                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
-//                    },
-                    'entity'=>'category'
-                ],
-                'is_searchable'=>false,
-                'order'=>false
-            ],
+//            'category_id'=> [
+//                'name'=>'category_id',
+//                'type'=>'custom_relation',
+//                'relation'=>[
+//                    'data'=> Category::all(),
+////                    'custom'=>function($Object){
+////                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
+////                    },
+//                    'entity'=>'category'
+//                ],
+//                'is_searchable'=>false,
+//                'order'=>false
+//            ],
             'country_id'=> [
                 'name'=>'country_id',
                 'type'=>'custom_relation',

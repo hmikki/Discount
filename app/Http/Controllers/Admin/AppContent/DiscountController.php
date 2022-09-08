@@ -23,6 +23,7 @@ class DiscountController extends Controller
         $this->setViewShow('Admin.AppContent.Discount.show');
         $this->setLang('Discounts');
         $this->setColumns([
+            dd(Category::all()),
             'category_id'=> [
                 'name'=>'category_id',
                 'type'=>'custom_relation',

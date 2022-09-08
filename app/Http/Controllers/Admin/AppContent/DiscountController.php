@@ -29,7 +29,7 @@ class DiscountController extends Controller
                     'custom'=>function($Object){
                         return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
                     },
-                    'entity'=>'country'
+                    'entity'=>'site'
                 ],
                 'is_searchable'=>true,
                 'order'=>true
@@ -67,7 +67,6 @@ class DiscountController extends Controller
             ],
         ]);
         $this->setFields([
-            dd(Site::where('is_active', true)->get()),
             'site_id'=> [
                 'name'=>'site_id',
                 'type'=>'custom_relation',
@@ -76,7 +75,7 @@ class DiscountController extends Controller
                     'custom'=>function($Object){
                         return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
                     },
-                    'entity'=>'country'
+                    'entity'=>'site'
                 ],
                 'is_required'=>true
             ],

@@ -180,6 +180,8 @@ return [
         'crud_name' => 'خصم',
         'crud_the_name' => 'الخصم',
         'site_id'=>'اسم الموقع',
+        'country_id'=>'اسم الدولة',
+        'category_id'=>'اسم التصنيف',
         'name' => 'الاسم',
         'name_ar' => 'الاسم عربي',
         'image' => 'الصورة',

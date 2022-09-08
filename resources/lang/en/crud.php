@@ -180,6 +180,8 @@ return [
         'crud_name' => 'Discount',
         'crud_the_name' => 'The Discount',
         'site_id'=>'Site Name',
+        'country_id'=>'Country',
+        'category_id'=>'Category',
         'name' => 'Name',
         'name_ar' => 'Name Ar',
         'image' => 'Image',

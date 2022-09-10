@@ -4,11 +4,8 @@ namespace App\Http\Requests\Api\discounts;
 
 use App\Http\Requests\Api\ApiRequest;
 use App\Http\Resources\Api\Discount\DiscountResource;
-use App\Http\Resources\Api\Product\ProductResource;
 use App\Models\Discount;
-use App\Models\Favorite;
 use App\Models\Favourite;
-use App\Models\Product;
 use Illuminate\Http\JsonResponse;
 
 class ToggleFavoriteRequest extends ApiRequest

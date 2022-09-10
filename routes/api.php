@@ -76,8 +76,8 @@ Route::group([
         Route::get('show','discountsController@show');
         Route::group(['middleware' => 'auth:api'],
             function() {
-                Route::get('favorites', 'ProductController@favorites');
-                Route::post('toggle_favorite', 'ProductController@toggle_favorite');
+                Route::get('favorites', 'discountsController@favorites');
+                Route::post('toggle_favorite', 'discountsController@toggle_favorite');
             });
     });
 

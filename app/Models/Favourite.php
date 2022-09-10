@@ -8,20 +8,20 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * @property integer id
  * @property mixed user_id
- * @property mixed food_id
+ * @property mixed discount_id
  */
 class Favourite extends Model
 {
     protected $table = 'favourites';
-    protected $fillable = ['user_id','food_id'];
+    protected $fillable = ['user_id','discount_id'];
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-    public function food(): BelongsTo
+    public function discount(): BelongsTo
     {
-        return $this->belongsTo(Food::class);
+        return $this->belongsTo(Discount::class);
     }
     /**
      * @return int
@@ -58,17 +58,17 @@ class Favourite extends Model
     /**
      * @return mixed
      */
-    public function getFoodId()
+    public function getDiscountId()
     {
-        return $this->food_id;
+        return $this->discount_id;
     }
 
     /**
-     * @param mixed $food_id
+     * @param mixed $discount_id
      */
-    public function setFoodId($food_id): void
+    public function setDiscountId($discount_id): void
     {
-        $this->food_id = $food_id;
+        $this->discount_id = $discount_id;
     }
 
 }

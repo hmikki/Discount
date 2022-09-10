@@ -26,7 +26,7 @@ class ToggleFavoriteRequest extends ApiRequest
         $logged = auth()->user();
         $Object = (new Favourite())->where('discount_id',$Discount->getId())->where('user_id',$logged->getId())->first();
         if (!$Object){
-            $Object = new Favorite();
+            $Object = new Favourite();
             $Object->setDiscountId($Discount->getId());
             $Object->setUserId($logged->getId());
             $Object->save();

@@ -5,6 +5,8 @@ namespace App\Http\Resources\Api\Discount;
 use App\Helpers\Functions;
 use App\Http\Resources\Api\Home\CountryResource;
 use App\Http\Resources\Api\Site\SiteResource;
+use App\Models\Favorite;
+use App\Models\Favourite;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\Api\Home\DelegateResource;
@@ -24,6 +26,11 @@ class DiscountResource extends JsonResource
         $Objects['image'] = asset($this->getImage());
         $Objects['url'] = $this->getUrl();
         $Objects['type'] = __('crud.Discounts.types.'.$this->getType());
+        $is_favorite = false;
+        if (auth()->user()) {
+            $is_favorite = (bool)Favourite::where('user_id',auth()->user()->getId())->where('discount_id',$this->id)->first();
+        }
+        $Objects['is_favorite'] = $is_favorite;
         $Objects['expire_date'] = Carbon::parse($this->getExpireDate());
         $Objects['qrcode'] = $this->getQrcode();
         return $Objects;

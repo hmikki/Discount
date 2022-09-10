@@ -7,6 +7,7 @@ use App\Http\Resources\Api\Discount\DiscountResource;
 use App\Http\Resources\Api\Product\ProductResource;
 use App\Models\Discount;
 use App\Models\Favorite;
+use App\Models\Favourite;
 use App\Models\Product;
 use Illuminate\Http\JsonResponse;
 
@@ -26,7 +27,7 @@ class ToggleFavoriteRequest extends ApiRequest
     {
         $Discount = (new Discount())->find($this->discount_id);
         $logged = auth()->user();
-        $Object = (new Favorite())->where('discount_id',$Discount->getId())->where('user_id',$logged->getId())->first();
+        $Object = (new Favourite())->where('discount_id',$Discount->getId())->where('user_id',$logged->getId())->first();
         if (!$Object){
             $Object = new Favorite();
             $Object->setDiscountId($Discount->getId());

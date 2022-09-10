@@ -7,6 +7,7 @@ use App\Http\Resources\Api\Discount\DiscountResource;
 use App\Http\Resources\Api\Product\ProductResource;
 use App\Models\Discount;
 use App\Models\Favorite;
+use App\Models\Favourite;
 use App\Models\Product;
 use Illuminate\Http\JsonResponse;
 
@@ -18,7 +19,7 @@ class FavoriteRequest extends ApiRequest
     }
     public function run(): JsonResponse
     {
-        $product_ids = (new Favorite())->where('user_id',auth()->user()->getId())->pluck('discount_id');
+        $product_ids = (new Favourite())->where('user_id',auth()->user()->getId())->pluck('discount_id');
         $Objects = new Discount();
         $Objects = $Objects->whereIn('id',$product_ids);
 

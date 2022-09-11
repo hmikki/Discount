@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\AppContent\Discount;
 
 use App\Models\Discount;
+use App\Models\DiscountCountry;
 use App\Models\Media;
 use App\Models\ModelPermission;
 use App\Models\ModelRole;
@@ -80,18 +81,29 @@ class StoreRequest extends FormRequest
         $Object->setQrcode(QrCode::size(200)->generate($Object->getUrl()));
         $Object->save();
         $Object->refresh();
-        if(isset($MultiCheckboxField)){
-            foreach ($MultiCheckboxField as $MField){
-                if ($this->filled($MField['name'])){
-                    foreach ($this->{$MField['name']} as $MValue){
-                        $Model = $MField['custom']['RelationModel']['Model'];
-                        $Model->{$MField['custom']['RelationModel']['ref_id']} = $MValue;
-                        $Model->{$MField['custom']['RelationModel']['id']} = $Object->getId();
-                        $Model->save();
-                    }
+
+        if($this->filled('countries')){
+                foreach ($this->countries as $country) {
+                    $DiscountCountry = new DiscountCountry();
+                    $DiscountCountry->setCountryId($country);
+                    $DiscountCountry->setDiscountId($Object->getId());
+                    $DiscountCountry->save();
                 }
-            }
         }
+        $Object->save();
+        $Object->refresh();
+//        if(isset($MultiCheckboxField)){
+//            foreach ($MultiCheckboxField as $MField){
+//                if ($this->filled($MField['name'])){
+//                    foreach ($this->{$MField['name']} as $MValue){
+//                        $Model = $MField['custom']['RelationModel']['Model'];
+//                        $Model->{$MField['custom']['RelationModel']['ref_id']} = $MValue;
+//                        $Model->{$MField['custom']['RelationModel']['id']} = $Object->getId();
+//                        $Model->save();
+//                    }
+//                }
+//            }
+//        }
         if(isset($ImagesField)){
             foreach ($ImagesField as $IField){
                 foreach ($this->file($IField['name']) as $IValue){

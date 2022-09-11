@@ -29,7 +29,9 @@ return [
         'faqs'=>'FAQ',
         'categories'=>'Categories',
         'subscriptions'=>'Subscriptions',
-        'customers'=>'Customers',
+        'users'=>'Customers',
+        'sites'=>'Sites',
+        'discounts'=>'Discounts',
         'technicals'=>'Technicals',
         'tickets'=>'Tickets',
         'foods'=>'Foods',
@@ -40,6 +42,7 @@ return [
     ],
     'Home'=>[
         'n_send_general'=>'Send Public Notification ',
+        'n_send_custom'=>'Send Custom Notification ',
         'n_title'=>'Notification Title',
         'n_text'=>'Notification Text',
         'n_enter_title'=>'Enter Notification Title',
@@ -49,6 +52,8 @@ return [
         'n_type_0'=>'All',
         'n_type_1'=>'Users',
         'n_type_2'=>'Providers',
+        'user'=>'User Name',
+        'select_user'=>'Choose User Name',
     ],
 /////////////////////// Most Used ////////////////////////
     'print' => 'Print',

@@ -44,6 +44,7 @@ Route::group([
     Route::get('/', 'HomeController@index');
     Route::get('delete/media', 'HomeController@delete_media');
     Route::post('notification/send', 'HomeController@general_notification');
+    Route::post('notification/send/custom', 'HomeController@custom_notification');
 
     /*
     |--------------------------------------------------------------------------

@@ -390,6 +390,9 @@ trait AhmedPanelTrait
             case 'custom_relation':
                 return view('AhmedPanel.base.fields.custom_relation',compact('Field','value','lang'));
                 break;
+            case 'custom_relation_checkbox':
+                return view('AhmedPanel.base.fields.custom_relation_checkbox',compact('Field','value','lang'));
+                break;
             case 'active':
                 return view('AhmedPanel.base.fields.active',compact('Field','value','lang'));
                 break;

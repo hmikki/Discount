@@ -13,17 +13,20 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property mixed category_id
  * @property mixed name
  * @property mixed name_ar
+ * @property mixed description
+ * @property mixed description_ar
  * @property mixed image
  * @property mixed url
  * @property mixed qrcode
  * @property mixed type
+ * @property mixed value
  * @property mixed expire_date
  * @property boolean is_active
  */
 class Discount extends Model
 {
     protected $table = 'discounts';
-    protected $fillable = ['site_id','country_id','category_id','name','name_ar','image', 'url', 'qrcode', 'type', 'expire_date','is_active'];
+    protected $fillable = ['site_id','country_id','category_id','name','name_ar','description','description_ar','image', 'url', 'qrcode', 'type','value', 'expire_date','is_active'];
 
     public function site(): BelongsTo
     {
@@ -121,6 +124,36 @@ class Discount extends Model
     /**
      * @return mixed
      */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+/**
+     * @param mixed $description
+     */
+    public function setDescription($description): void
+    {
+        $this->description = $description;
+    }
+    /**
+     * @return mixed
+     */
+    public function getDescriptionAr(): string
+    {
+        return $this->description_ar;
+    }
+
+    /**
+     * @param mixed $description_ar
+     */
+    public function setDescriptionAr($description_ar): void
+    {
+        $this->description_ar = $description_ar;
+    }
+    /**
+     * @return mixed
+     */
     public function getExpireDate(): string
     {
         return $this->expire_date;
@@ -201,7 +234,7 @@ class Discount extends Model
     /**
      * @return mixed
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->type;
     }
@@ -212,6 +245,22 @@ class Discount extends Model
     public function setType(string $type): void
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * @param mixed $value
+     */
+    public function setValue(string $value): void
+    {
+        $this->value = $value;
     }
 
     /**

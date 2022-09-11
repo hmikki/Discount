@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\AppContent\Discount\StoreRequest;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\Discount;
+use App\Models\DiscountCountry;
 use App\Models\Site;
 use App\Traits\AhmedPanelTrait;
 
@@ -29,7 +30,7 @@ class DiscountController extends Controller
                 'relation'=>[
                     'data'=> Site::where('is_active', true)->get(),
                     'custom'=>function($Object){
-                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
+                        return ($Object)?((app()->getLocale() == 'ar')?$Object->getNameAr():$Object->getName()): '-';
                     },
                     'entity'=>'site'
                 ],
@@ -42,24 +43,12 @@ class DiscountController extends Controller
                 'relation'=>[
                     'data'=> Category::all(),
                     'custom'=>function($Object){
-                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
+//                        return $Object;
+                        return ($Object)?((app()->getLocale() == 'ar')?$Object->getNameAr():$Object->getName()): '-';
                     },
                     'entity'=>'category'
                 ],
                 'is_searchable'=>false,
-                'order'=>true
-            ],
-            'country_id'=> [
-                'name'=>'country_id',
-                'type'=>'custom_relation',
-                'relation'=>[
-                    'data'=> Country::all(),
-                    'custom'=>function($Object){
-                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
-                    },
-                    'entity'=>'country'
-                ],
-                'is_searchable'=>true,
                 'order'=>true
             ],
             'image'=> [
@@ -101,7 +90,7 @@ class DiscountController extends Controller
                 'relation'=>[
                     'data'=> Site::where('is_active', true)->get(),
                     'custom'=>function($Object){
-                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
+                        return ($Object)?((app()->getLocale() == 'ar')?$Object->getNameAr():$Object->getName()): '-';
                     },
                     'entity'=>'site'
                 ],
@@ -113,23 +102,34 @@ class DiscountController extends Controller
                 'relation'=>[
                     'data'=> Category::where('is_active', true)->get(),
                     'custom'=>function($Object){
-                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
+                        return ($Object)?((app()->getLocale() == 'ar')?$Object->getNameAr():$Object->getName()): '-';
                     },
                     'entity'=>'category'
                 ],
                 'is_required'=>true
             ],
-            'country_id'=> [
-                'name'=>'country_id',
-                'type'=>'custom_relation',
-                'relation'=>[
-                    'data'=> Country::all(),
-                    'custom'=>function($Object){
-                        return app()->getLocale() == 'ar'?$Object->getNameAr():$Object->getName();
-                    },
-                    'entity'=>'country'
+            'countries'=> [
+                'name'=>'countries',
+                'type'=>'multi_checkbox',
+                'custom'=>[
+                    'ListModel'=>[
+                        'Model'=>(new Country())->all(),
+                        'name'=>(app()->getLocale() == 'ar')? 'name_ar' : 'name',
+                        'id'=>'id',
+                    ],
+                    'RelationModel'=>[
+                        'Model'=>(new DiscountCountry()),
+                        'ref_id'=>'country_id',
+                        'id'=>'discount_id',
+                    ],
+                    'CheckFunc'=>function ($Object ,$id){
+                        if($Object){
+                            return true;
+                        }
+                        return false;
+                    }
                 ],
-                'is_required'=>true
+                'is_required'=>false,
             ],
             'name'=> [
                 'name'=>'name',
@@ -139,6 +139,16 @@ class DiscountController extends Controller
             'name_ar'=> [
                 'name'=>'name_ar',
                 'type'=>'text',
+                'is_required'=>true
+            ],
+            'description'=> [
+                'name'=>'description',
+                'type'=>'textarea',
+                'is_required'=>true
+            ],
+            'description_ar'=> [
+                'name'=>'description_ar',
+                'type'=>'textarea',
                 'is_required'=>true
             ],
             'image'=> [
@@ -162,6 +172,12 @@ class DiscountController extends Controller
                         Constant::DISCOUNT_TYPE['BackCash'] =>__('crud.Discounts.types.'.Constant::DISCOUNT_TYPE['BackCash'],[],session('my_locale')),
                         Constant::DISCOUNT_TYPE['BuyOneGetOne'] =>__('crud.Discounts.types.'.Constant::DISCOUNT_TYPE['BuyOneGetOne'],[],session('my_locale')),
                         ],
+                'is_required'=>false,
+                'is_required_update'=>false
+            ],
+            'value'=> [
+                'name'=>'value',
+                'type'=>'text',
                 'is_required'=>false,
                 'is_required_update'=>false
             ],

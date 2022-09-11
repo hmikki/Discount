@@ -43,6 +43,20 @@ class HomeController extends Controller
         Functions::sendNotifications($Users,$Title,$Message,null,Constant::NOTIFICATION_TYPE['General']);
         return redirect()->back()->with('status', __('admin.messages.notification_sent'));
     }
+    public function custom_notification(Request $request){
+        $Title = $request->has('title')?$request->title:'';
+        $Message = $request->has('msg')?$request->msg:'';
+        $Users = new User();
+        if ($request->filled('user_id')){
+            $Users = $Users->where('id',$request->user_id);
+        }
+        $Users = $Users->whereNotNull('device_token')->pluck('device_token')->toArray();
+        $UsersChunks=array_chunk($Users,1000);
+        foreach ($UsersChunks as $UsersChunk){
+            Functions::sendNotifications($UsersChunk,$Title,$Message,null,Constant::NOTIFICATION_TYPE['General'],true);
+        }
+        return redirect()->back()->with('status', __('admin.messages.notification_sent'));
+    }
     public function delete_media(DeleteMediaRequest $request){
         return $request->preset();
     }

@@ -23,7 +23,7 @@ class DiscountResource extends JsonResource
         $Objects['country'] = new CountryResource($this->country);
         $Objects['category'] = new CategoryResource($this->category);
         $Objects['name'] = (app()->getLocale() == 'ar')? $this->getNameAr(): $this->getName();
-        $Objects['description'] = (app()->getLocale() == 'ar')? $this->getDiscriptionAr(): $this->getDiscription();
+        $Objects['description'] = (app()->getLocale() == 'ar')? $this->getDescriptionAr(): $this->getDescription();
         $Objects['image'] = asset($this->getImage());
         $Objects['url'] = $this->getUrl();
         $Objects['type'] = $this->getType();

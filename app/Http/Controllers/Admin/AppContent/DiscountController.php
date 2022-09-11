@@ -108,29 +108,6 @@ class DiscountController extends Controller
                 ],
                 'is_required'=>true
             ],
-            'countries'=> [
-                'name'=>'countries',
-                'type'=>'multi_checkbox',
-                'custom'=>[
-                    'ListModel'=>[
-                        'Model'=>(new Country())->all(),
-                        'name'=>(app()->getLocale() == 'ar')? 'name_ar' : 'name',
-                        'id'=>'id',
-                    ],
-                    'RelationModel'=>[
-                        'Model'=>(new DiscountCountry()),
-                        'ref_id'=>'country_id',
-                        'id'=>'discount_id',
-                    ],
-                    'CheckFunc'=>function ($Object ,$id){
-                        if($Object){
-                            return true;
-                        }
-                        return false;
-                    }
-                ],
-                'is_required'=>false,
-            ],
             'name'=> [
                 'name'=>'name',
                 'type'=>'text',
@@ -186,6 +163,29 @@ class DiscountController extends Controller
                 'type'=>'date',
                 'is_required'=>true,
                 'is_required_update'=>false
+            ],
+            'countries'=> [
+                'name'=>'countries',
+                'type'=>'multi_checkbox',
+                'custom'=>[
+                    'ListModel'=>[
+                        'Model'=>(new Country())->all(),
+                        'name'=>(app()->getLocale() == 'ar')? 'name_ar' : 'name',
+                        'id'=>'id',
+                    ],
+                    'RelationModel'=>[
+                        'Model'=>(new DiscountCountry()),
+                        'ref_id'=>'country_id',
+                        'id'=>'discount_id',
+                    ],
+                    'CheckFunc'=>function ($Object ,$id){
+                        if($Object){
+                            return true;
+                        }
+                        return false;
+                    }
+                ],
+                'is_required'=>false,
             ],
 
         ]);

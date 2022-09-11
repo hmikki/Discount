@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Helpers\Functions;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
@@ -16,13 +17,13 @@ class DiscountCountry extends Model
     protected $table = 'discounts_countries';
     protected $fillable = ['country_id','discount_id'];
 
-    public function country(): HasMany
+    public function country(): BelongsTo
     {
-        return $this->hasMany(Country::class,'country_id');
+        return $this->belongsTo(Country::class);
     }
-    public function discount(): HasMany
+    public function discount(): BelongsTo
     {
-        return $this->hasMany(Discount::class);
+        return $this->belongsTo(Discount::class);
     }
     /**
      * @return int

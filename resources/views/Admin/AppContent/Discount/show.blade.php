@@ -28,6 +28,19 @@
                                                     <th style="border-top: none !important;">{{__('crud.'.$lang.'.'.$field["name"])}}</th>
                                                     <td style="border-top: none !important;"><a href="{{$Object[$field["name"]]}}">{{$Object[$field["name"]]}}</a></td>
                                                 </tr>
+
+                                            @elseif($field["type"] == 'multi_checkbox')
+                                                <tr>
+                                                    <th style="border-top: none !important;">{{__('crud.'.$lang.'.'.$field["name"])}}</th>
+                                                    @php
+                                                        $countries = App\Models\DiscountCountry::where('discount_id', $Object->getId())->get();
+                                                        @endphp
+                                                    @foreach($countries as $item)
+                                                        <th style="border-top: none !important;">
+                                                            {{$item->country->getName()}}
+                                                        </th>
+                                                    @endforeach
+                                                </tr>
                                             @else
                                                 <tr>
                                                     <th style="border-top: none !important;">{{__('crud.'.$lang.'.'.$field["name"])}}</th>

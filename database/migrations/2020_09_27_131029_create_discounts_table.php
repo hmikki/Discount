@@ -25,6 +25,7 @@ class CreateDiscountsTable extends Migration
              $table->string('url')->nullable();
              $table->date('expire_date')->nullable();
              $table->text('qrcode')->nullable();
+             $table->text('code')->nullable();
              $table->tinyInteger('type')->nullable();
              $table->string('value')->nullable();
              $table->boolean('is_active')->default(true);

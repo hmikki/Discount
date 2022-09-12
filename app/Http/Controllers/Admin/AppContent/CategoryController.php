@@ -52,12 +52,14 @@ class CategoryController extends Controller
             'name'=> [
                 'name'=>'name',
                 'type'=>'text',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'name_ar'=> [
                 'name'=>'name_ar',
                 'type'=>'text',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'description'=> [
                 'name'=>'description',
@@ -86,7 +88,8 @@ class CategoryController extends Controller
             'is_active'=> [
                 'name'=>'is_active',
                 'type'=>'active',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
         ]);
         $this->SetLinks([

@@ -56,12 +56,14 @@ class SitesController extends Controller
             'name'=> [
                 'name'=>'name',
                 'type'=>'text',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'name_ar'=> [
                 'name'=>'name_ar',
                 'type'=>'text',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'image'=> [
                 'name'=>'image',

@@ -40,27 +40,32 @@ class FaqController extends Controller
             'question'=> [
                 'name'=>'question',
                 'type'=>'text',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'question_ar'=> [
                 'name'=>'question_ar',
                 'type'=>'text',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'answer'=> [
                 'name'=>'answer',
                 'type'=>'textarea',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'answer_ar'=> [
                 'name'=>'answer_ar',
                 'type'=>'textarea',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'is_active'=> [
                 'name'=>'is_active',
                 'type'=>'active',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
         ]);
         $this->SetLinks([

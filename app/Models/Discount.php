@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property mixed image
  * @property mixed url
  * @property mixed qrcode
+ * @property mixed code
  * @property mixed type
  * @property mixed value
  * @property mixed expire_date
@@ -26,7 +27,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Discount extends Model
 {
     protected $table = 'discounts';
-    protected $fillable = ['site_id','country_id','category_id','name','name_ar','description','description_ar','image', 'url', 'qrcode', 'type','value', 'expire_date','is_active'];
+    protected $fillable = ['site_id','country_id','category_id','name','name_ar','description','description_ar','image', 'url', 'qrcode','code', 'type','value', 'expire_date','is_active'];
 
     public function site(): BelongsTo
     {
@@ -229,6 +230,21 @@ class Discount extends Model
     public function setQrcode(string $qrcode): void
     {
         $this->qrcode = $qrcode;
+    }
+    /**
+     * @return mixed
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param mixed $code
+     */
+    public function setCode(string $code): void
+    {
+        $this->code = $code;
     }
 
     /**

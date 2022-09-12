@@ -46,27 +46,32 @@ class AdvertisementController extends Controller
             'title'=> [
                 'name'=>'title',
                 'type'=>'text',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'title_ar'=> [
                 'name'=>'title_ar',
                 'type'=>'text',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'description'=> [
                 'name'=>'description',
                 'type'=>'text',
-                'is_required'=>false
+                'is_required'=>false,
+                'is_required_update'=>false
             ],
             'description_ar'=> [
                 'name'=>'description_ar',
                 'type'=>'text',
-                'is_required'=>false
+                'is_required'=>false,
+                'is_required_update'=>false
             ],
             'is_active'=> [
                 'name'=>'is_active',
                 'type'=>'active',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
         ]);
         $this->SetLinks([

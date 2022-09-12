@@ -54,27 +54,32 @@ class SplashScreenController extends Controller
             'title'=> [
                 'name'=>'title',
                 'type'=>'text',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'title_ar'=> [
                 'name'=>'title_ar',
                 'type'=>'text',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'description'=> [
                 'name'=>'description',
                 'type'=>'textarea',
-                'is_required'=>false
+                'is_required'=>false,
+                'is_required_update'=>false
             ],
             'description_ar'=> [
                 'name'=>'description_ar',
                 'type'=>'textarea',
-                'is_required'=>false
+                'is_required'=>false,
+                'is_required_update'=>false
             ],
             'order'=> [
                 'name'=>'order',
                 'type'=>'number',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'image'=> [
                 'name'=>'image',
@@ -85,7 +90,8 @@ class SplashScreenController extends Controller
             'active'=> [
                 'name'=>'active',
                 'type'=>'active',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
         ]);
         $this->SetLinks([

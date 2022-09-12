@@ -57,6 +57,12 @@ class DiscountController extends Controller
                 'is_searchable'=>true,
                 'order'=>true
             ],
+            'code'=> [
+                'name'=>'code',
+                'type'=>'text',
+                'is_searchable'=>true,
+                'order'=>true
+            ],
             'name'=> [
                 'name'=>'name',
                 'type'=>'text',
@@ -94,7 +100,8 @@ class DiscountController extends Controller
                     },
                     'entity'=>'site'
                 ],
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'category_id'=> [
                 'name'=>'category_id',
@@ -106,27 +113,38 @@ class DiscountController extends Controller
                     },
                     'entity'=>'category'
                 ],
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'name'=> [
                 'name'=>'name',
                 'type'=>'text',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'name_ar'=> [
                 'name'=>'name_ar',
                 'type'=>'text',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'description'=> [
                 'name'=>'description',
                 'type'=>'textarea',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'description_ar'=> [
                 'name'=>'description_ar',
                 'type'=>'textarea',
-                'is_required'=>true
+                'is_required'=>true,
+                'is_required_update'=>false
+            ],
+            'code'=> [
+                'name'=>'code',
+                'type'=>'text',
+                'is_required'=>true,
+                'is_required_update'=>false
             ],
             'image'=> [
                 'name'=>'image',
@@ -186,6 +204,7 @@ class DiscountController extends Controller
                     }
                 ],
                 'is_required'=>false,
+                'is_required_update'=>false
             ],
 
         ]);

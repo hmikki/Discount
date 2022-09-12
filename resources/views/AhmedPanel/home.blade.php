@@ -89,7 +89,7 @@
                                 <select name="user_id" id="user_id" class="form-control" required>
                                     <option>{{__('admin.Home.select_user')}}</option>
                                     @foreach(\App\Models\User::all() as $user)
-                                        <option value="{{$user->getId()}}">{{$user->getUserName()}}</option>
+                                        <option value="{{$user->getId()}}">{{$user->getName()}}</option>
                                     @endforeach
                                 </select>
                             </div>

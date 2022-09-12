@@ -37,6 +37,12 @@ class indexRequest extends ApiRequest
     public function run(): JsonResponse
     {
         $Objects =new  Discount();
+        if($this->filled('q')){
+            $Objects = $Objects->where('name','Like', '%'.$this->q.'%')
+                ->orWhere('name_ar','Like', '%'.$this->q.'%')
+                ->orWhere('description','Like', '%'.$this->q.'%')
+                ->orWhere('description_ar','Like', '%'.$this->q.'%');
+        }
         $Objects = $Objects->paginate($this->filled('per_page')?$this->per_page:10);
         return $this->successJsonResponse([],DiscountResource::collection($Objects->items()),'Discounts',$Objects);
 

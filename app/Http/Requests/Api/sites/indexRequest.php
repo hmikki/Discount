@@ -40,6 +40,10 @@ class indexRequest extends ApiRequest
 //            return $this->failJsonResponse([__('auth.unauthenticated')]);
 //        }
         $Objects =new  Site();
+        if($this->filled('q')){
+            $Objects = $Objects->where('name','Like', '%'.$this->q.'%')
+                ->orWhere('name_ar','Like', '%'.$this->q.'%');
+        }
         $Objects = $Objects->paginate($this->filled('per_page')?$this->per_page:10);
         return $this->successJsonResponse([],SiteResource::collection($Objects->items()),'Sites',$Objects);
     }

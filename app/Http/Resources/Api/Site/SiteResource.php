@@ -4,6 +4,7 @@ namespace App\Http\Resources\Api\Site;
 
 use App\Helpers\Functions;
 use Carbon\Carbon;
+use App\Models\Discount;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\Api\Home\DelegateResource;
 use App\Http\Resources\Api\User\UserResource;
@@ -18,6 +19,7 @@ class SiteResource extends JsonResource
         $Objects['name'] = (app()->getLocale() == 'ar')? $this->getNameAr() : $this->getName();
         $Objects['image'] = asset($this->getImage());
         $Objects['url'] = $this->getUrl();
+        $Objects['discount_count'] = Discount::where('site_id', $this->getId())->count();
         $Objects['is_active'] = (bool)$this->is_active;
         return $Objects;
 

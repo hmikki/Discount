@@ -38,6 +38,10 @@ class Discount extends Model
     {
         return $this->belongsTo(Country::class,'country_id');
     }
+    public function countries(): HasMany
+    {
+        return $this->hasMany(DiscountCountry::class);
+    }
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class,'category_id','id');

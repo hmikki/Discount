@@ -91,7 +91,7 @@ class Advertisement extends Model
     /**
      * @return mixed
      */
-    public function getUrl(): string
+    public function getUrl()
     {
         return $this->url;
     }

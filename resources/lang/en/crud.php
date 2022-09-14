@@ -242,6 +242,13 @@ return [
         'description' => 'Description',
         'description_ar' => 'Description Ar',
         'is_active' => 'Status',
+        'type'=>'Type',
+        'types'=>[
+            ''.Constant::ADVERTISEMENT_TYPE['Url']=>'Url',
+            ''.Constant::ADVERTISEMENT_TYPE['Id']=>'Discount Id',
+        ],
+        'url'=>'Linl',
+        'discount_id'=>'Discount Id',
     ],
     'UserSubscription'=>[
         'crud_names' => 'Users Subscriptions',

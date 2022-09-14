@@ -17,6 +17,11 @@ class Constant
         'Mobile'=>2
     ];
     const VERIFICATION_TYPE_RULES = '1,2';
+    const ADVERTISEMENT_TYPE = [
+        'Url'=>1,
+        'Id'=>2
+    ];
+    const ADVERTISEMENT_TYPE_RULES = '1,2';
     const SETTING_TYPE = [
         'Page'=>1,
         'Splash'=>2,

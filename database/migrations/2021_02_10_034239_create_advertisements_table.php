@@ -20,6 +20,9 @@ class CreateAdvertisementsTable extends Migration
              $table->string('description')->nullable();
              $table->string('description_ar')->nullable();
              $table->string('image');
+             $table->tinyInteger('type')->nullable();
+             $table->string('url');
+             $table->string('discount_id');
              $table->boolean('is_active')->default(true);
              $table->timestamps();
          });

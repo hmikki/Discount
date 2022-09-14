@@ -258,6 +258,13 @@ return [
         'description'=>'الوصف',
         'description_ar'=>'الوصف عربي',
         'is_active' => 'الحالة',
+        'type'=>'النوع',
+        'types'=>[
+            ''.Constant::ADVERTISEMENT_TYPE['Url']=>'رابط',
+            ''.Constant::ADVERTISEMENT_TYPE['Id']=>'رقم الخصم',
+        ],
+        'url'=>'الرابط',
+        'discount_id'=>'رقم الخصم',
     ],
     'UserSubscription'=>[
         'crud_names' => 'اشتراكات العميلين',

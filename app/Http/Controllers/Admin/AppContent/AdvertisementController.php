@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin\AppContent;
 
+use App\Helpers\Constant;
 use App\Http\Controllers\Admin\Controller;
 use App\Models\Advertisement;
+use App\Models\Discount;
 use App\Traits\AhmedPanelTrait;
 
 class AdvertisementController extends Controller
@@ -64,6 +66,35 @@ class AdvertisementController extends Controller
             'description_ar'=> [
                 'name'=>'description_ar',
                 'type'=>'text',
+                'is_required'=>false,
+                'is_required_update'=>false
+            ],
+            'type'=> [
+                'name'=>'type',
+                'type'=>'select',
+                'data' => ([
+                    1 => __('crud.Advertisement.types.'.Constant::ADVERTISEMENT_TYPE['Url']),
+                    2 => __('crud.Advertisement.types.'.Constant::ADVERTISEMENT_TYPE['Id']),
+                ]),
+                'is_required'=>false,
+                'is_required_update'=>false
+            ],
+            'url'=> [
+                'name'=>'url',
+                'type'=>'text',
+                'is_required'=>false,
+                'is_required_update'=>false
+            ],
+            'discount_id'=> [
+                'name'=>'discount_id',
+                'type' => 'custom_relation',
+                'relation' => [
+                    'data' => Discount::all(),
+                    'custom' => function ($Object) {
+                        return ($Object) ? ((app()->getLocale() == 'ar') ? $Object->name_ar : $Object->name) : '-';
+                    },
+                    'entity' => 'category',
+                ],
                 'is_required'=>false,
                 'is_required_update'=>false
             ],

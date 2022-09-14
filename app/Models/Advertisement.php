@@ -3,19 +3,27 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property integer id
  * @property string title
  * @property string title_ar
  * @property string image
+ * @property mixed url
+ * @property mixed discount_id
+ * @property mixed type
  * @property boolean is_active
  */
 class Advertisement extends Model
 {
     protected $table = 'advertisements';
-    protected $fillable = ['title','title_ar','image','is_active'];
+    protected $fillable = ['title','title_ar', 'type', 'url', 'discount_id','image','is_active'];
 
+    public function discount(): BelongsTo
+    {
+        return $this->belongsTo(Discount::class,'discount_id', 'id');
+    }
     /**
      * @return int
      */
@@ -79,6 +87,51 @@ class Advertisement extends Model
     public function setImage(string $image): void
     {
         $this->image = $image;
+    }
+    /**
+     * @return mixed
+     */
+    public function getUrl(): string
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param mixed $url
+     */
+    public function setUrl($url): void
+    {
+        $this->url = $url;
+    }
+    /**
+     * @return mixed
+     */
+    public function getDiscountId()
+    {
+        return $this->discount_id;
+    }
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType(string $type): void
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @param mixed $discount_id
+     */
+    public function setDiscountId($discount_id): void
+    {
+        $this->discount_id = $discount_id;
     }
 
     /**

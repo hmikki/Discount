@@ -21,9 +21,9 @@ class DiscountResource extends JsonResource
         $Objects = array();
         $Objects['id'] = $this->getId();
         $Objects['site'] = new SiteResource($this->site);
-        $countries = DiscountCountry::where('discount_id', $this->getId())->get();
-//        $Objects['country'] = CountryResource::collection(Country::where('id', $countries->getCountryId())->get());
-        $Objects['country'] = $countries;
+        $countries = DiscountCountry::where('discount_id', $this->getId())->pluck('country_id');
+        $Objects['country'] = CountryResource::collection(Country::whereIn('id', $countries)->get());
+//        $Objects['country'] = $countries;
         $Objects['category'] = new CategoryResource($this->category);
         $Objects['name'] = (app()->getLocale() == 'ar')? $this->getNameAr(): $this->getName();
         $Objects['description'] = (app()->getLocale() == 'ar')? $this->getDescriptionAr(): $this->getDescription();

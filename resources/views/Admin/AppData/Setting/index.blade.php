@@ -156,7 +156,7 @@
                                     </form>
                                 </tr>
                             @foreach($Objects as $object)
-                                @if($object->type == \App\Helpers\Constant::SETTING_TYPE['Values'])
+                                @if($object->type == \App\Helpers\Constant::SETTING_TYPE['Values'] ||$object->type == \App\Helpers\Constant::SETTING_TYPE['Bools'])
 
                                     <tr>
                                         @foreach($Columns as $Column)

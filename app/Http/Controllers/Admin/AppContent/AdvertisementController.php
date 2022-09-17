@@ -15,7 +15,7 @@ class AdvertisementController extends Controller
     public function setup()
     {
         $this->setRedirect('app_content/advertisements');
-        $this->setEntity((new Advertisement())->orderBy('order', 'desc'));
+        $this->setEntity((new Advertisement())->orderBy('created_at', 'desc'));
         $this->setTable('Advertisements');
         $this->setLang('Advertisement');
         $this->setColumns([

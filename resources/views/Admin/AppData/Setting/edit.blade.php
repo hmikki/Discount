@@ -43,7 +43,8 @@
                                         <option value="1" @if($Object->getValue() == '1') selected @endif>{{__('admin.true')}}</option>
                                         <option value="0" @if($Object->getValue() == '0') selected @endif>{{__('admin.false')}}</option>
                                     </select>
-                                    @else
+                                        @endif
+                                    @if($Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Page'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Values'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Notification'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Splash'])
                                         <textarea id="value" name="value" required class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}">{{$Object->getValue()}}</textarea>
                                     @endif
                                 </div>

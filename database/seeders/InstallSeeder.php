@@ -212,6 +212,14 @@ class InstallSeeder extends Seeder
                 'value'=>'',
                 'value_ar'=>'',
                 'key'=>'mobile',
+                'type'=>Constant::SETTING_TYPE['Bools'],
+            ],
+            'Enforce_login'=>[
+                'name'=>'Enforce login',
+                'name_ar'=>'تقييد المستخدم',
+                'value'=>'',
+                'value_ar'=>'',
+                'key'=>'enforce_login',
                 'type'=>Constant::SETTING_TYPE['Values'],
             ],
             'splash_1'=>[

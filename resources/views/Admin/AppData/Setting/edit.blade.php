@@ -38,60 +38,67 @@
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label for="value" class="control-label">{{__('crud.'.$lang.'.value')}} *</label>
-                                    <textarea id="value" name="value" required class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}">{{$Object->getValue()}}</textarea>
+                                @if($Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Bools'])
+                                    <select id="value" name="value" required class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}">
+                                        <option value="1" @if($Object->getValue() == '1') selected @endif>{{__('admin.true')}}</option>
+                                        <option value="0" @if($Object->getValue() == '0') selected @endif>{{__('admin.false')}}</option>
+                                    </select>
+                                    @else
+                                        <textarea id="value" name="value" required class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}">{{$Object->getValue()}}</textarea>
+                                    @endif
                                 </div>
-                                @if ($errors->has('value'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('value') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            @if($Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Page'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Notification'] )
-                            <div class="col-md-12">
-                                <div class="form-group label-floating">
-                                    <label for="value_ar" class="control-label">{{__('crud.'.$lang.'.value_ar')}} *</label>
-                                    <textarea id="value_ar" name="value_ar" required class="form-control {{ $errors->has('value_ar') ? ' is-invalid' : '' }}">{{$Object->getValueAr()}}</textarea>
-                                </div>
-                                @if ($errors->has('value_ar'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('value_ar') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            @endif
-                        </div>
-                        <div class="row submit-btn">
-                            <button type="submit" class="btn btn-primary" style="margin-left:15px;margin-right:15px;">{{__('admin.save')}}</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+@if ($errors->has('value'))
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $errors->first('value') }}</strong>
+    </span>
+@endif
+</div>
+@if($Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Page'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Notification'] )
+<div class="col-md-12">
+<div class="form-group label-floating">
+    <label for="value_ar" class="control-label">{{__('crud.'.$lang.'.value_ar')}} *</label>
+    <textarea id="value_ar" name="value_ar" required class="form-control {{ $errors->has('value_ar') ? ' is-invalid' : '' }}">{{$Object->getValueAr()}}</textarea>
+</div>
+@if ($errors->has('value_ar'))
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $errors->first('value_ar') }}</strong>
+    </span>
+@endif
+</div>
+@endif
+</div>
+<div class="row submit-btn">
+<button type="submit" class="btn btn-primary" style="margin-left:15px;margin-right:15px;">{{__('admin.save')}}</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
 
 @endsection
 @section('script')
-    <script>
-        function permissionCheck() {
-            let roleEls = document.getElementsByClassName('role');
-            let permissionEls = document.getElementsByClassName('permission');
-            for (let p = 0;p<permissionEls.length;p++){
-                // permissionEls[p].checked=false;
-                permissionEls[p].disabled=false;
-            }
-            for (let r = 0;r<roleEls.length;r++){
-                let roleEl = roleEls[r];
-                let permission = RolePermission[roleEl.id];
-                for(let i = 0; i < permission.length; i++){
-                    let permissionEl = document.getElementById('permission'+permission[i]);
-                    if(roleEl.checked){
-                        permissionEl.checked=true;
-                        permissionEl.disabled=true;
-                    }
-                }
-            }
+<script>
+function permissionCheck() {
+let roleEls = document.getElementsByClassName('role');
+let permissionEls = document.getElementsByClassName('permission');
+for (let p = 0;p<permissionEls.length;p++){
+// permissionEls[p].checked=false;
+permissionEls[p].disabled=false;
+}
+for (let r = 0;r<roleEls.length;r++){
+let roleEl = roleEls[r];
+let permission = RolePermission[roleEl.id];
+for(let i = 0; i < permission.length; i++){
+let permissionEl = document.getElementById('permission'+permission[i]);
+if(roleEl.checked){
+permissionEl.checked=true;
+permissionEl.disabled=true;
+}
+}
+}
 
-        }
-        permissionCheck();
-    </script>
+}
+permissionCheck();
+</script>
 @endsection

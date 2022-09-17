@@ -45,11 +45,11 @@ class SettingController extends Controller
                 'type'=>'text',
                 'is_required'=>false
             ],
-            'value'=> [
-                'name'=>'value',
-                'type'=>'textarea',
-                'is_required'=>true
-            ],
+//            'value'=> [
+//                'name'=>'value',
+//                'type'=>'textarea',
+//                'is_required'=>true
+//            ],
             'value_ar'=> [
                 'name'=>'value_ar',
                 'type'=>'textarea',

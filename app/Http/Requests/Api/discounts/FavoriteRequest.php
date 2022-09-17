@@ -18,7 +18,7 @@ class FavoriteRequest extends ApiRequest
     {
         $product_ids = (new Favourite())->where('user_id',auth()->user()->getId())->pluck('discount_id');
         $Objects = new Discount();
-        $Objects = $Objects->whereIn('id',$product_ids);
+        $Objects = $Objects->whereIn('id',$product_ids)->orderBy('order','desc');
 
         $Objects = $Objects->paginate($this->filled('per_page')?$this->per_page:10);
         return $this->successJsonResponse([],DiscountResource::collection($Objects->items()),'Discounts',$Objects);

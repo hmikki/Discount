@@ -143,7 +143,7 @@ class DiscountController extends Controller
             'code'=> [
                 'name'=>'code',
                 'type'=>'text',
-                'is_required'=>true,
+                'is_required'=>false,
                 'is_required_update'=>false
             ],
             'image'=> [

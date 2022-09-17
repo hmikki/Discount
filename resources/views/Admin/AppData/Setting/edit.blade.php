@@ -38,7 +38,16 @@
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label for="value" class="control-label">{{__('crud.'.$lang.'.value')}} *</label>
-                                    <textarea id="value" name="value" required class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}">{{$Object->getValue()}}</textarea>
+                                @if($Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Bools'])
+                                    <select id="value" name="value" required class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}">
+                                        <option value="1" @if($Object->getValue() == '1') selected @endif>{{__('admin.true')}}</option>
+                                        <option value="0" @if($Object->getValue() == '0') selected @endif>{{__('admin.false')}}</option>
+                                    </select>
+                                        @endif
+                                    @if($Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Page'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Values'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Notification'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Splash'])
+                                        <textarea id="value" name="value" required class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}">{{$Object->getValue()}}</textarea>
+                                    @endif
+{{--                                    <textarea id="value" name="value" required class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}">{{$Object->getValue()}}</textarea>--}}
 
                                 </div>
 @if ($errors->has('value'))

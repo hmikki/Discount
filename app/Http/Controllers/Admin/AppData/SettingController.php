@@ -47,16 +47,12 @@ class SettingController extends Controller
             ],
             'value'=> [
                 'name'=>'value',
-                'type'=> function($Object){
-                return ($Object->getType() == 5)?'boolean' :'textarea';
-                },
+                'type'=>'textarea',
                 'is_required'=>true
             ],
             'value_ar'=> [
                 'name'=>'value_ar',
-                'type'=> function($Object){
-                    return ($Object->getType() == 5)?'boolean' :'textarea';
-                },
+                'type'=>'textarea',
                 'is_required'=>true
             ],
         ]);

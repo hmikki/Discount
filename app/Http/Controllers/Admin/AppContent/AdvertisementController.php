@@ -15,7 +15,7 @@ class AdvertisementController extends Controller
     public function setup()
     {
         $this->setRedirect('app_content/advertisements');
-        $this->setEntity(new Advertisement());
+        $this->setEntity((new Advertisement())->orderBy('created_at', 'desc'));
         $this->setTable('advertisements');
         $this->setLang('Advertisement');
         $this->setColumns([
@@ -81,7 +81,7 @@ class AdvertisementController extends Controller
             ],
             'url'=> [
                 'name'=>'url',
-                'type'=>'text',
+                'type'=>'url',
                 'is_required'=>false,
                 'is_required_update'=>false
             ],

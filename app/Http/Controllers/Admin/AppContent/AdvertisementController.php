@@ -82,7 +82,7 @@ class AdvertisementController extends Controller
             'url'=> [
                 'name'=>'url',
                 'type'=>'text',
-                'is_required'=>false,
+                'is_required'=> false,
                 'is_required_update'=>false
             ],
             'discount_id'=> [

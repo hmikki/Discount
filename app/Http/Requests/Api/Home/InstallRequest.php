@@ -29,7 +29,6 @@ class InstallRequest extends ApiRequest
         $data['Categories'] = CategoryResource::collection(Category::where('is_active', true)->get());
         $data['Advertisements'] = AdvertisementResource::collection(Advertisement::where('is_active', true)->orderBy('created_at','desc')->get());
         $data['SplashScreens'] = SplashScreensResource::collection(SplashScreen::where('active',true)->orderBy('order','desc')->get());
-        $data['is_logged'] = (bool)Auth::user();
         $data['Essentials'] = [
             'NotificationType' => Constant::NOTIFICATION_TYPE,
             'VerificationType' => Constant::VERIFICATION_TYPE,

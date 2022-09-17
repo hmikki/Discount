@@ -27,7 +27,7 @@ class Constant
         'Splash'=>2,
         'Notification'=>3,
         'Values'=>4,
-        'Bools'=>4,
+        'Bools'=>5,
     ];
     const MEDIA_TYPE = [
         'Attachments'=>1,

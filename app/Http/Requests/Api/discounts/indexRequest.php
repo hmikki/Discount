@@ -37,6 +37,12 @@ class indexRequest extends ApiRequest
     public function run(): JsonResponse
     {
         $Objects =new  Discount();
+        if ($this->filled('category_id')){
+            $Objects= $Objects->where('category_id', $this->category_id);
+        }
+        if ($this->filled('site_id')){
+            $Objects= $Objects->where('site_id', $this->site_id);
+        }
         if($this->filled('q')){
             $Objects = $Objects->where('name','Like', '%'.$this->q.'%')
                 ->orWhere('name_ar','Like', '%'.$this->q.'%')

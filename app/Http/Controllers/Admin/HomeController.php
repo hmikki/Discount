@@ -39,7 +39,7 @@ class HomeController extends Controller
             $Users = $Users->where('type',1);
         if($request->has('type') && $request->type == 2)
             $Users = $Users->where('type',2);
-        $Users = $Users->whereNotNull('device_token')->get();
+        $Users = $Users->whereNotNull('device_token')->pluck('device_token');
         Functions::sendNotifications($Users,$Title,$Message,null,Constant::NOTIFICATION_TYPE['General']);
         return redirect()->back()->with('status', __('admin.messages.notification_sent'));
     }

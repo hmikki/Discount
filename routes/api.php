@@ -23,7 +23,7 @@ Route::group([
     Route::post('check_code', 'AuthController@check_code');
     Route::post('register','AuthController@register');
     Route::post('forget_password','AuthController@forget_password');
-    Route::post('check_reset_code','AuthController@check_reset_code');
+//    Route::post('check_reset_code','AuthController@check_reset_code');
     Route::post('reset_password','AuthController@reset_password');
     Route::group([
         'middleware' => 'auth:api'

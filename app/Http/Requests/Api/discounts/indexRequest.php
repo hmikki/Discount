@@ -49,6 +49,7 @@ class indexRequest extends ApiRequest
                 ->orWhere('description','Like', '%'.$this->q.'%')
                 ->orWhere('description_ar','Like', '%'.$this->q.'%');
         }
+        $Objects = $Objects->orderBy('created_at','desc');
         $Objects = $Objects->paginate($this->filled('per_page')?$this->per_page:10);
         return $this->successJsonResponse([],DiscountResource::collection($Objects->items()),'Discounts',$Objects);
 

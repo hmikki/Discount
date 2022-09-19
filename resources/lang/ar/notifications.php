@@ -12,5 +12,6 @@ return [
     | you want to customize your views to better match your application.
     |
     */
-
+'discount_title'=> 'خصم جديد',
+    'discount_description'=>'لديك خصم جديد',
 ];

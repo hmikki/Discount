@@ -8,8 +8,12 @@ use App\Models\Media;
 use App\Models\ModelPermission;
 use App\Models\ModelRole;
 use App\Models\RolePermission;
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Request;
+use App\Helpers\Functions;
+use App\Helpers\Constant;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class StoreRequest extends FormRequest
@@ -79,8 +83,10 @@ class StoreRequest extends FormRequest
         }
 
         $Object->setQrcode(QrCode::size(200)->generate($Object->getUrl()));
+        $users = User::where('is_active', true)->pluck('device_token');
         $Object->save();
         $Object->refresh();
+        Functions::sendNotifications($users,__('notifications.discount_title'),__('notifications.discount_description'),$Object->getId(),Constant::NOTIFICATION_TYPE['General']);
 
         if($this->filled('countries')){
                 foreach ($this->countries as $country) {

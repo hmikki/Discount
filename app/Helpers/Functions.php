@@ -41,7 +41,7 @@ class Functions
         );
         $headers = array
         (
-            'Authorization: key='.config('app.notification_key') ,
+            'Authorization: key=AAAAQKlOO8c:APA91bHQihVFgvB3XOQzW2VZVy51rTegi1rxQYFKmQrer5niVj7-n-W3Td4cLW9UYbhdS7mz5yvuM9kQqvwmJaD8JhzXxVUnGLLuVaSyyZDYpOGEJ44Ois1L6SWEjUL9CAREDIHX1QSv' ,
             'Content-Type: application/json'
         );
 
@@ -92,7 +92,7 @@ class Functions
         );
         $headers = array
         (
-            'Authorization: key='.config('app.notification_key') ,
+            'Authorization: key=AAAAQKlOO8c:APA91bHQihVFgvB3XOQzW2VZVy51rTegi1rxQYFKmQrer5niVj7-n-W3Td4cLW9UYbhdS7mz5yvuM9kQqvwmJaD8JhzXxVUnGLLuVaSyyZDYpOGEJ44Ois1L6SWEjUL9CAREDIHX1QSv',
             'Content-Type: application/json'
         );
 

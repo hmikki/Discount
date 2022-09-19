@@ -34,7 +34,7 @@ Route::group([
         Route::get('show_profile', 'AuthController@show_profile');
         Route::post('update','AuthController@update');
         Route::get('resend_verify', 'AuthController@resend_verify');
-        Route::post('change_password','AuthController@change_password');
+        Route::post('update_password','AuthController@update_password');
         Route::post('logout','AuthController@logout');
     });
 });

@@ -72,7 +72,7 @@ class AuthController extends Controller
     {
         return $request->persist();
     }
-    public function change_password(PasswordRequest $request): JsonResponse
+    public function update_password(PasswordRequest $request): JsonResponse
     {
         return $request->persist();
     }

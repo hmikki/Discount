@@ -35,6 +35,8 @@ class DiscountResource extends JsonResource
         $is_favorite = false;
         if (auth()->user()) {
             $is_favorite = (bool)Favourite::where('user_id',auth()->user()->getId())->where('discount_id',$this->id)->first();
+        }else{
+            $is_favorite = false;
         }
         $Objects['is_favorite'] = $is_favorite;
         $Objects['expire_date'] = Carbon::parse($this->getExpireDate());

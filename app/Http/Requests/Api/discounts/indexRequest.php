@@ -38,7 +38,9 @@ class indexRequest extends ApiRequest
     {
         $Objects =new  Discount();
         if ($this->filled('category_id')){
-            $Objects= $Objects->where('category_id', $this->category_id);
+            if ($this->category_id != 1){
+                $Objects= $Objects->whereIn('category_id', [1, $this->category_id]);
+            }
         }
         if ($this->filled('site_id')){
             $Objects= $Objects->where('site_id', $this->site_id);

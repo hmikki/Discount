@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6">
-            <div class="card card-stats" onclick="window.location='{{url('user_managements/categories')}}'" style="cursor: pointer">
+            <div class="card card-stats" onclick="window.location='{{url('app_content/categories')}}'" style="cursor: pointer">
                 <div class="card-header" data-background-color="orange">
                     <i class="material-icons">list_alt</i>
                 </div>

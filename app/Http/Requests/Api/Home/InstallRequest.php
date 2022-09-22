@@ -27,7 +27,8 @@ class InstallRequest extends ApiRequest
         $data['Settings'] = Setting::pluck((app()->getLocale() == 'en') ? 'value' : 'value_ar', 'key')->toArray();
         $data['Countries'] = CountryResource::collection(Country::where('is_active', true)->get());
         $data['Categories'] = CategoryResource::collection(Category::where('is_active', true)->get());
-        $data['Advertisements'] = AdvertisementResource::collection(Advertisement::where('is_active', true)->orderBy('created_at','desc')->get());
+        $data['Advertisements'] = AdvertisementResource::collection(Advertisement::where('is_active', true)->orderBy('created_at','desc')->limit(10)->get());
+        $data['Sites'] = SiteResource::collection(Site::where('is_active', true)->orderBy('created_at','desc')->limit(10)->get());
         $data['SplashScreens'] = SplashScreensResource::collection(SplashScreen::where('active',true)->orderBy('order','desc')->get());
         $data['Essentials'] = [
             'NotificationType' => Constant::NOTIFICATION_TYPE,

@@ -34,7 +34,7 @@
                                     </span>
                                 @endif
                             </div>
-{{--                            @endif--}}
+                            @endif
 {{--                            <div class="col-md-12">--}}
 {{--                                <div class="form-group label-floating">--}}
 {{--                                    <label for="value" class="control-label">{{__('crud.'.$lang.'.value')}} *</label>--}}

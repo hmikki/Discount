@@ -35,72 +35,40 @@
                                 @endif
                             </div>
                             @endif
-{{--                            <div class="col-md-12">--}}
-{{--                                <div class="form-group label-floating">--}}
-{{--                                    <label for="value" class="control-label">{{__('crud.'.$lang.'.value')}} *</label>--}}
-{{--                                @if($Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Bools'])--}}
-{{--                                    <select id="value" name="value" required class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}">--}}
-{{--                                        <option value="1" @if($Object->getValue() == '1') selected @endif>{{__('admin.true')}}</option>--}}
-{{--                                        <option value="0" @if($Object->getValue() == '0') selected @endif>{{__('admin.false')}}</option>--}}
-{{--                                    </select>--}}
-{{--                                        @endif--}}
-{{--                                    @if($Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Page'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Values'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Notification'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Splash'])--}}
-{{--                                        <textarea id="value" name="value" required class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}">{{$Object->getValue()}}</textarea>--}}
-{{--                                    @endif--}}
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label for="value" class="control-label">{{__('crud.'.$lang.'.value')}} *</label>
+                                @if($Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Bools'])
+                                    <select id="value" name="value" required class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}">
+                                        <option value="1" @if($Object->getValue() == '1') selected @endif>{{__('admin.true')}}</option>
+                                        <option value="0" @if($Object->getValue() == '0') selected @endif>{{__('admin.false')}}</option>
+                                    </select>
+                                        @endif
+                                    @if($Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Page'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Values'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Notification'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Splash'])
+                                        <textarea id="value" name="value" required class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}">{{$Object->getValue()}}</textarea>
+                                    @endif
 {{--                                    <textarea id="value" name="value" required class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}">{{$Object->getValue()}}</textarea>--}}
 
-{{--                                </div>--}}
-{{--@if ($errors->has('value'))--}}
-{{--    <span class="invalid-feedback" role="alert">--}}
-{{--        <strong>{{ $errors->first('value') }}</strong>--}}
-{{--    </span>--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--@if($Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Page'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Notification'] )--}}
-{{--<div class="col-md-12">--}}
-{{--<div class="form-group label-floating">--}}
-{{--    <label for="value_ar" class="control-label">{{__('crud.'.$lang.'.value_ar')}} *</label>--}}
-{{--    <textarea id="value_ar" name="value_ar" required class="form-control {{ $errors->has('value_ar') ? ' is-invalid' : '' }}">{{$Object->getValueAr()}}</textarea>--}}
-{{--</div>--}}
-{{--@if ($errors->has('value_ar'))--}}
-{{--    <span class="invalid-feedback" role="alert">--}}
-{{--        <strong>{{ $errors->first('value_ar') }}</strong>--}}
-{{--    </span>--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--@endif--}}
-                                <div class="col-md-12">
-                                    <div class="form-group label-floating">
-                                        <label for="value" class="control-label">{{__('crud.'.$lang.'.value')}} *</label>
-                                        @if($Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Bools'])
-                                            <select id="value" name="value" required class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}">
-                                                <option value="1" @if($Object->getValue() == '1') selected @endif>{{__('admin.true')}}</option>
-                                                <option value="0" @if($Object->getValue() == '0') selected @endif>{{__('admin.false')}}</option>
-                                            </select>
-                                        @endif
-                                        @if($Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Page'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Values'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Notification'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Splash'])
-                                            <textarea id="summernote" name="value" required class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}">{{$Object->getValue()}}</textarea>
-                                        @endif
-                                    </div>
-                                    @if ($errors->has('value'))
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('value') }}</strong>
-                                    </span>
-                                    @endif
                                 </div>
-                                @if($Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Page'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Notification'] )
-                                    <div class="col-md-12">
-                                        <div class="form-group label-floating">
-                                            <label for="value_ar" class="control-label">{{__('crud.'.$lang.'.value_ar')}} *</label>
-                                            <textarea id="summernote_ar" name="value_ar" required class="form-control {{ $errors->has('value_ar') ? ' is-invalid' : '' }}">{{$Object->getValueAr()}}</textarea>
-                                        </div>
-                                        @if ($errors->has('value_ar'))
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('value_ar') }}</strong>
-                                    </span>
-                                        @endif
-                                    </div>
-                                @endif
+@if ($errors->has('value'))
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $errors->first('value') }}</strong>
+    </span>
+@endif
+</div>
+@if($Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Page'] ||$Object->getType() == \App\Helpers\Constant::SETTING_TYPE['Notification'] )
+<div class="col-md-12">
+<div class="form-group label-floating">
+    <label for="value_ar" class="control-label">{{__('crud.'.$lang.'.value_ar')}} *</label>
+    <textarea id="value_ar" name="value_ar" required class="form-control {{ $errors->has('value_ar') ? ' is-invalid' : '' }}">{{$Object->getValueAr()}}</textarea>
+</div>
+@if ($errors->has('value_ar'))
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $errors->first('value_ar') }}</strong>
+    </span>
+@endif
+</div>
+@endif
 </div>
 <div class="row submit-btn">
 <button type="submit" class="btn btn-primary" style="margin-left:15px;margin-right:15px;">{{__('admin.save')}}</button>

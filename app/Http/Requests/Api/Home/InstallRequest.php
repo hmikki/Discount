@@ -5,6 +5,7 @@ namespace App\Http\Requests\Api\Home;
 use App\Helpers\Constant;
 use App\Http\Requests\Api\ApiRequest;
 use App\Http\Resources\Api\Home\AdvertisementResource;
+use App\Http\Resources\Api\Home\SiteResource;
 use App\Http\Resources\Api\Home\CategoryResource;
 use App\Http\Resources\Api\Home\CountryResource;
 use App\Http\Resources\Api\Home\SplashScreensResource;

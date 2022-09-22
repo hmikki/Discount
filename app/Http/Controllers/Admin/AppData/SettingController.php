@@ -25,7 +25,7 @@ class SettingController extends Controller
         $this->setCreate(false);
         $this->setExport(false);
         $this->setViewIndex('Admin.AppData.Setting.index');
-        $this->setViewEdit('Admin.AppData.Setting.edit2');
+        $this->setViewEdit('Admin.AppData.Setting.edit');
         $this->setColumns([
             'name'=> [
                 'name'=>'name',

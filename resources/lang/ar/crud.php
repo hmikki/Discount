@@ -194,6 +194,7 @@ return [
         'type'=>'نوع الخصم',
         'value'=>'قيمة الخصم',
         'qrcode'=>'رمز الاستجابة السريعة',
+        'code'=>'كود الخصم',
         'types'=>[
             ''.Constant::DISCOUNT_TYPE['Percentage']=>'نسبة مئوية',
             ''.Constant::DISCOUNT_TYPE['FreeDelivery']=>'توصيل مجاني',

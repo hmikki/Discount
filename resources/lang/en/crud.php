@@ -193,6 +193,7 @@ return [
         'type'=>'Discount Type',
         'value'=>'Discount Value',
         'qrcode'=>'Qrcode',
+        'code'=>'Promocode',
         'expire_date'=>'Expire Date',
         'types'=>[
             ''.Constant::DISCOUNT_TYPE['Percentage']=>'Percentage',

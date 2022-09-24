@@ -4,7 +4,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header" data-background-color="{{ config('app.color') }}">
-                    <h4 class="title">{{__('dashboard.edit')}} {{__(('crud.'.$lang.'.crud_the_name'))}}</h4>
+                    <h4 class="title">{{__('admin
+.edit')}} {{__(('crud.'.$lang.'.crud_the_name'))}}</h4>
                 </div>
                 <div class="card-content">
                     <form action="{{url($redirect.'/'.$Object->id)}}" method="post" enctype="multipart/form-data">
@@ -72,7 +73,7 @@
                             @endif
                         </div>
                         <div class="row submit-btn">
-                            <button type="submit" class="btn btn-primary" style="margin-left:15px;margin-right:15px;">{{__('dashboard.save')}}</button>
+                            <button type="submit" class="btn btn-primary" style="margin-left:15px;margin-right:15px;">{{__('admin.save')}}</button>
                         </div>
                     </form>
                 </div>

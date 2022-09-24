@@ -86,7 +86,7 @@ class StoreRequest extends FormRequest
         $users = User::where('is_active', true)->pluck('device_token');
         $Object->save();
         $Object->refresh();
-        Functions::sendNotifications($users,__('notifications.discount_title'),__('notifications.discount_description'),$Object->getId(),Constant::NOTIFICATION_TYPE['General']);
+        Functions::sendNotifications($users,__('notifications.discount_title'),__('notifications.discount_description'),$Object->getId(),Constant::NOTIFICATION_TYPE['Discount']);
 
         if($this->filled('countries')){
                 foreach ($this->countries as $country) {

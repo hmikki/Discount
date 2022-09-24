@@ -9,7 +9,7 @@ class Constant
     const NOTIFICATION_TYPE = [
         'General'=>1,
         'Ticket'=>2,
-        'Order'=>3,
+        'Discount'=>3,
         'Message'=>4,
     ];
     const VERIFICATION_TYPE = [

@@ -82,6 +82,12 @@ Route::group([
                 Route::post('toggle_favorite', 'discountsController@toggle_favorite');
             });
     });
+    Route::group([
+        'prefix' => 'posts',
+    ], function() {
+        Route::get('/','PostController@index');
+        Route::get('show','PostController@show');
+    });
 
 });
 Route::group([

@@ -61,4 +61,9 @@ class Constant
         'BuyOneGetOne'=>4,
     ];
     const DISCOUNT_TYPE_RULES = '1,2,3,4';
+    const POST_TYPE = [
+        'News'=>1,
+        'Analytics'=>2,
+    ];
+    const POST_TYPE_RULES = '1,2';
 }

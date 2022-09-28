@@ -37,6 +37,7 @@ class InstallRequest extends ApiRequest
             'VerificationType' => Constant::VERIFICATION_TYPE,
             'TicketStatuses'=>Constant::TICKETS_STATUS,
             'DiscountType'=>Constant::DISCOUNT_TYPE,
+            'Post Type'=>Constant::POST_TYPE,
         ];
         return $this->successJsonResponse([], $data);
     }

@@ -217,6 +217,23 @@ return [
         'has_service' => 'يسمح بخدمة',
         'is_active' => 'الحالة',
     ],
+    'Posts'=>[
+        'crud_names' => 'الأخبار',
+        'crud_name' => 'خبر',
+        'crud_the_name' => 'الخبر',
+        'title' => 'العنوان',
+        'title_ar' => 'العنوان عربي',
+        'description' => 'الوصف',
+        'description_ar' => 'الوصف عربي',
+        'active' => 'الحالة',
+        'date' => 'التاريخ',
+        'type' => 'نوع الخبر',
+        'image'=>'الصورة',
+        'post_types'=>[
+            ''.Constant::POST_TYPE['News'] => 'خبر',
+            ''.Constant::POST_TYPE['Analytics'] => 'تحليلات',
+        ]
+    ],
     'Subscription'=>[
         'crud_names' => 'الاشتراكات',
         'crud_name' => 'اشتراك',

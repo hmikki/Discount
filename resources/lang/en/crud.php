@@ -202,6 +202,23 @@ return [
             ''.Constant::DISCOUNT_TYPE['BuyOneGetOne']=>'Buy One Get One',
         ]
     ],
+    'Posts'=>[
+        'crud_names' => 'Posts',
+        'crud_name' => 'Post',
+        'crud_the_name' => 'The Post',
+        'title' => 'Title En',
+        'title_ar' => 'Title Ar',
+        'description' => 'Description En',
+        'description_ar' => 'Description Ar',
+        'active' => 'Status',
+        'date' => 'Date',
+        'type' => 'Type',
+        'image'=>'Image',
+        'post_types'=>[
+            ''.Constant::POST_TYPE['News'] => 'News',
+            ''.Constant::POST_TYPE['Analytics'] => 'Analytics',
+        ],
+    ],
     'Subscription'=>[
         'crud_names' => 'Subscriptions',
         'crud_name' => 'Subscription',

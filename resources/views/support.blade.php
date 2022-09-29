@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-12">
 {{--            <div class="bg-img-about"><img src="{{asset('lib/img/img4.png')}}" alt="" width="100px" height="70px"></div>--}}
-            <div class="h1 text-center about-h"> Support Shamel </div>
+            <div class="h1 text-center about-h"> Support CodeKhasim </div>
             <div class="about-content">
                 <div class="row mb-5">
                     <div class="col-1"></div>
@@ -65,47 +65,47 @@
     <div class="row">
         <div class="col-12">
             <div class="h1">
-                Contact Unicode
+                Contact Code Khasim
             </div>
             <p>Drop us a line with any questions, inquiries or business proposals</p>
             <form action="{{url('contact')}}" method="post">
                 @csrf
                 <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-4">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" name="name" class="form-control" required id="name" aria-describedby="Name" placeholder="">
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <label for="email">E-Mail</label>
                             <input type="email" name="email" class="form-control" required id="email" aria-describedby="Email" placeholder="">
                         </div>
                     </div>
-                    <div class="col-2"></div>
+                    <div class="col-lg-2"></div>
                 </div>
                 <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-8">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8">
                         <div class="form-group">
                             <label for="title">Title</label>
                             <input type="text" name="title" class="form-control" required id="title" aria-describedby="Title" placeholder="">
                         </div>
                     </div>
-                    <div class="col-2"></div>
+                    <div class="col-lg-2"></div>
                 </div>
                 <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-8">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8">
                         <div class="form-group">
                             <label for="message">Message</label>
                             <textarea class="form-control" name="message" id="message" rows="3"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-                    <div class="col-2"></div>
+                    <div class="col-lg-2"></div>
                 </div>
             </form>
         </div>

@@ -33,4 +33,7 @@ class HomeController extends Controller
             $message = 'Verification Token is required !';
         return view('verification',compact('message'));
     }
+    public function support(){
+        return view('support');
+    }
 }

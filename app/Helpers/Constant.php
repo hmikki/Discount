@@ -30,7 +30,7 @@ class Constant
         'Bools'=>5,
     ];
     const MEDIA_TYPE = [
-        'Attachments'=>1,
+        'Product'=>1,
         'Experience_Certificate'=>2,
         'College_Document'=>3,
     ];
@@ -66,4 +66,12 @@ class Constant
         'Analytics'=>2,
     ];
     const POST_TYPE_RULES = '1,2';
+    const ORDER_STATUSES = [
+        'New' => 1,
+        'InProgress' => 2,
+        'Finished' => 3,
+    ];
+    const COMPLETED_ORDER_STATUSES = [self::ORDER_STATUSES['Finished']];
+    const ORDER_STATUSES_RULES = '1,2,3';
+
 }

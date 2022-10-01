@@ -5,7 +5,7 @@ namespace App\Http\Requests\Api\Product;
 use App\Helpers\Constant;
 use App\Http\Requests\Api\ApiRequest;
 use App\Http\Resources\Api\Product\ProductResource;
-use App\Models\Products;
+use App\Models\Product;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\JsonResponse;
 use App\Models\Media;

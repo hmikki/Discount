@@ -45,7 +45,7 @@ class StoreRequest extends ApiRequest
         $Order->setAddress($this->address);
         $Order->setMobile($this->mobile);
         $Order->setQuantity($this->quantity);
-        $total = (int)($product->getPrice()) * $this->quantity ;
+        $total = (int)($product->getOfferPrice()) * $this->quantity ;
         $Order->setTotal($total);
         $Order->setStatus(Constant::ORDER_STATUSES['New']);
         $Order->save();

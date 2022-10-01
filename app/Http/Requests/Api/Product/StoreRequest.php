@@ -42,6 +42,7 @@ class StoreRequest extends ApiRequest
         $product->setName($this->name);
         $product->setDescription($this->description);
         $product->setDescriptionAr($this->description_ar);
+        $product->setCategoryId($this->category_id);
         $product->setNameAr($this->name_ar);
         $product->setQuantity($this->quantity);
         $product->setOriginalPrice($this->original_price);

@@ -4,14 +4,8 @@ namespace App\Http\Resources\Api\Product;
 
 use App\Helpers\Constant;
 use App\Http\Resources\Api\Home\CategoryResource;
-use App\Http\Resources\Api\Home\CountryResource;
-use App\Models\Attribute;
 use App\Models\Category;
-use App\Models\Country;
-use App\Models\Favorite;
 use App\Models\Media;
-use App\Models\Review;
-use App\Models\SizePrice;
 use App\Models\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;

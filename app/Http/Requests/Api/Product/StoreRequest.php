@@ -9,8 +9,6 @@ use App\Models\Product;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\JsonResponse;
 use App\Models\Media;
-use App\Models\ProductColor;
-use App\Models\ProductSize;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class StoreRequest extends ApiRequest

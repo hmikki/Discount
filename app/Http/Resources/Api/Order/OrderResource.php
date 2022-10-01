@@ -24,7 +24,7 @@ class OrderResource extends JsonResource
         $Objects['address'] = $this->address;
         $Objects['mobile'] = $this->mobile;
         $Objects['status'] = $this->status;
-        $Objects['order_status'] = OrderStatusResource::collection($this->order_status);
+//        $Objects['order_status'] = OrderStatusResource::collection($this->order_status);
         $Objects['quantity'] = $this->quantity;
         $Objects['total'] = $this->total;
         $Objects['order_date'] = ($this->created_at)->format('y-m-d');

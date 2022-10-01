@@ -22,7 +22,7 @@ class ProductResource extends JsonResource
         $Objects['quantity'] = $this->quantity;
         $Objects['original_price'] = $this->original_price;
         $Objects['offer_price'] = $this->offer_price;
-        $Objects['Media'] = $this->media? MediaResource::collection($this->media): null;
+        $Objects['Media'] = MediaResource::collection(Media::where('ref_id', $this->getId())->get());
         $Objects['active'] = $this->active;
         return $Objects;
     }

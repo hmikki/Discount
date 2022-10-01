@@ -15,7 +15,7 @@ class ProductResource extends JsonResource
     public function toArray($request): array
     {
         $Objects = array();
-        $Objects['id'] = $this->id;
+        $Objects['id'] = $this->getId();
         $Objects['category_id'] = $this->category_id;
         $Objects['name'] = (app()->getLocale() == 'ar')? $this->name_ar: $this->name;
         $Objects['description'] = (app()->getLocale() == 'ar')? $this->description_ar: $this->description;

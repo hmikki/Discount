@@ -46,6 +46,7 @@ class StoreRequest extends ApiRequest
         $product->setOriginalPrice($this->original_price);
         $product->setOfferPrice($this->offer_price);
         $product->setActive(true);
+        $product->save();
 
         foreach ($this->media as $item) {
             $product_media = new Media();

@@ -88,7 +88,7 @@ Route::group([
     ], function() {
         Route::get('/', 'ProductController@index');
         Route::get('show', 'ProductController@show');
-        Route::get('store', 'ProductController@store');
+        Route::post('store', 'ProductController@store');
     });
     Route::group([
         'prefix' => 'orders',

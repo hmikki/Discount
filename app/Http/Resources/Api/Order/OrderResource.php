@@ -19,6 +19,7 @@ class OrderResource extends JsonResource
         $Objects['id'] = $this->id;
         $Objects['user_id'] = $this->user_id;
         $Objects['product_id'] = $this->product_id;
+        $Objects['product'] = new ProductResource(Product::find($this->product_id));
         $Objects['country_id'] = $this->country_id;
         $Objects['city_id'] = $this->city_id;
         $Objects['address'] = $this->address;

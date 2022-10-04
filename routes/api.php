@@ -84,7 +84,6 @@ Route::group([
     });
     Route::group([
         'prefix' => 'product',
-        'middleware' => 'auth:api'
     ], function() {
         Route::get('/', 'ProductController@index');
         Route::get('show', 'ProductController@show');

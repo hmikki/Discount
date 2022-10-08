@@ -29,7 +29,7 @@ class IndexRequest extends ApiRequest
                     ->orWhere('description_ar','Like','%'.$q.'%');
             });
         }
-        $Objects = $Objects->paginate($this->filled('per_page')?$this->per_page:10);
+        $Objects = $Objects->orderBy('created_at','desc')->paginate($this->filled('per_page')?$this->per_page:10);
         return $this->successJsonResponse([],ProductResource::collection($Objects->items()), 'Product', $Objects);
     }
 }

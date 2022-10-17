@@ -219,8 +219,8 @@ class DiscountController extends Controller
     {
         return $request->preset($this);
     }
-    public function update(UpdateRequest $request)
+    public function update(UpdateRequest $request, $id)
     {
-        return $request->preset($this);
+        return $request->preset($this, $id);
     }
 }

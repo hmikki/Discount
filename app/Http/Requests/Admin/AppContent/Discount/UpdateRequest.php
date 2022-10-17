@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\AhmedPanel;
+namespace App\Http\Requests\Admin\AppContent\Discount;
 
 use App\Models\Admin;
 use App\Models\Media;

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\AppContent;
 use App\Helpers\Constant;
 use App\Http\Controllers\Admin\Controller;
 use App\Http\Requests\Admin\AppContent\Discount\StoreRequest;
+use App\Http\Requests\Admin\AppContent\Discount\UpdateRequest;
 use App\Models\Category;
 use App\Models\Country;
 use App\Models\Discount;
@@ -215,6 +216,10 @@ class DiscountController extends Controller
         ]);
     }
     public function store(StoreRequest $request)
+    {
+        return $request->preset($this);
+    }
+    public function update(UpdateRequest $request)
     {
         return $request->preset($this);
     }

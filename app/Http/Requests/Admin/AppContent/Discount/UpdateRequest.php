@@ -67,8 +67,8 @@ class UpdateRequest extends FormRequest
             }
         }
         $Object->save();
+        DiscountCountry::where('discount_id', $Object->getId())->delete();
         if($this->filled('countries')){
-            DiscountCountry::where('discount_id', $Object->getId())->delete();
             foreach ($this->countries as $country) {
                 $DiscountCountry = new DiscountCountry();
                 $DiscountCountry->setCountryId($country);
@@ -78,22 +78,22 @@ class UpdateRequest extends FormRequest
         }
         $Object->save();
         $Object->refresh();
-        if(isset($MultiCheckboxField)){
-            foreach ($MultiCheckboxField as $MField){
-                $Model = $MField['custom']['RelationModel']['Model'];
-                $Model->where($MField['custom']['RelationModel']['id'],$Object->getId())->delete();
-                if ($this->filled($MField['name'])) {
-                    if (is_array($this->{$MField['name']})) {
-                        foreach ($this->{$MField['name']} as $MValue) {
-                            $Model = $MField['custom']['RelationModel']['Model'];
-                            $Model->{$MField['custom']['RelationModel']['ref_id']} = $MValue;
-                            $Model->{$MField['custom']['RelationModel']['id']} = $Object->getId();
-                            $Model->save();
-                        }
-                    }
-                }
-            }
-        }
+//        if(isset($MultiCheckboxField)){
+//            foreach ($MultiCheckboxField as $MField){
+//                $Model = $MField['custom']['RelationModel']['Model'];
+//                $Model->where($MField['custom']['RelationModel']['id'],$Object->getId())->delete();
+//                if ($this->filled($MField['name'])) {
+//                    if (is_array($this->{$MField['name']})) {
+//                        foreach ($this->{$MField['name']} as $MValue) {
+//                            $Model = $MField['custom']['RelationModel']['Model'];
+//                            $Model->{$MField['custom']['RelationModel']['ref_id']} = $MValue;
+//                            $Model->{$MField['custom']['RelationModel']['id']} = $Object->getId();
+//                            $Model->save();
+//                        }
+//                    }
+//                }
+//            }
+//        }
         if(isset($ImagesField)){
             foreach ($ImagesField as $IField){
                 if($this->hasFile($IField['name'])){

@@ -67,9 +67,9 @@ class UpdateRequest extends FormRequest
             }
         }
         $Object->save();
-        if($crud->filled('countries')){
+        if($this->filled('countries')){
             DiscountCountry::where('discount_id', $Object->getId())->delete();
-            foreach ($crud->countries as $country) {
+            foreach ($this->countries as $country) {
                 $DiscountCountry = new DiscountCountry();
                 $DiscountCountry->setCountryId($country);
                 $DiscountCountry->setDiscountId($Object->getId());
